@@ -1,0 +1,10 @@
+{
+    "name": "bicpi/homepage",
+    "description": "The bicpi homepage",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "require": {
+        "twitter/bootstrap": "2.3.x"
+    }
+}
