@@ -1,0 +1,113 @@
+
+body {
+    position: relative;
+    padding-top: 60px;
+}
+
+/* Custom container */
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+.container > hr {
+    margin: 60px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    margin: 80px 0;
+    text-align: center;
+}
+.jumbotron h1 {
+    font-size: 100px;
+    line-height: 1;
+}
+.jumbotron .lead {
+    font-size: 24px;
+    line-height: 1.25;
+}
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 60px 0;
+}
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+
+/* Customize the navbar links to be fill the entire space of the .navbar */
+.navbar .navbar-inner {
+    padding: 0;
+}
+.navbar .nav {
+    margin: 0;
+    display: table;
+    width: 100%;
+}
+.navbar .nav li {
+    display: table-cell;
+    width: 1%;
+    float: none;
+}
+.navbar .nav li a {
+    font-weight: bold;
+    text-align: center;
+    border-left: 1px solid rgba(255,255,255,.75);
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+.navbar .nav li:first-child a {
+    border-left: 0;
+    border-radius: 3px 0 0 3px;
+}
+.navbar .nav li:last-child a {
+    border-right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+#footer {
+    width: 100%;
+    min-height: 50px;
+    background-color: #E9F2F9;
+    padding-top: 6px;
+    margin-top: 40px;
+    border-top: 1px solid #BEDCF4;
+}
+
+hr {
+    margin: 50px 0;
+}
+
+.social-bar a {
+    text-decoration: none;
+}
+.social-bar div {
+    border-radius: 25px 25px 25px 25px;
+    height: 25px;
+    background: #9CC4E4;
+    margin-right: 10px;
+    margin-top: 7px;
+    width: 25px;
+    float: left;
+}
+.social-bar i, .social-bar img {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.well {
+    background-color: #E9F2F9;
+    border-color: #BEDCF4;
+}
+
+#skills ul.inline li {
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

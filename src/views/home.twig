@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Philipp Rieber | Web-Entwickler | München</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Homepage von Philipp Rieber | Web-Entwickler aus München">
+    <meta name="author" content="Philipp Rieber">
+
+    <link type="text/plain" rel="author" href="/humans.txt" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Condensed">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    {#<link rel="shortcut icon" href="/favicon.ico">#}
+</head>
+
+<body data-spy="scroll" data-target=".navbar" id="home">
+
+<div class="container">
+
+    <div class="masthead">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav" style="width: 50%">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#skills">Techniken</a></li>
+                            <li><a href="#about">Über mich</a></li>
+                            <li><a href="#contact">Kontakt</a></li>
+                        </ul>
+                        <div class="pull-right">
+                            {% include 'social_bar.twig' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        {% for type, messages in app.session.flashbag.all %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ message|trans({})|raw }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <!-- Jumbotron -->
+        <section class="hero-unit" style="background: url(/img/phil.jpg) -100px -75px no-repeat; min-height: 300px; border: 1px #E9F2F9 solid; padding-left: 450px;">
+            <h1 style="margin-left: -40px">Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.</h1>
+            <div style="padding-left: 25px; padding-top: 10px">
+                <h2 style="display:inline">Ich bin leidenschaftlicher Web-Entwickler.</h2>
+                <h3 style="display:inline">Meine Werkzeuge sind PHP, Symfony, Doctrine, HTML5, JavaScript, CSS3, jQuery, Twig, git, Ubuntu, Amazon Web Services, Datenbanken und viele mehr.</h3>
+                <h4 style="display:inline">Ich lebe in München.</h4>
+            </div>
+        </section>
+
+        <section class="row-fluid">
+            <div class="span4">
+                <h2>Internet</h2>
+                <p>Seit meiner ersten E-Mail 1999 bin ich im Internet zu Hause.
+                Von der Hardware-Bastelei über die ersten Schritte mit Linux
+                war ich spätestens mit dem Studium von selfHTML komplett vom
+                Web-Entwickeln infiziert. Mit HTML, CSS, PHP, JavaScript,
+                Datenbanken, CMS, OOP, Frameworks u.v.m.</p>
+            </div>
+            <div class="span4">
+                <h2>Web-Entwicklung</h2>
+                <p>Ich bin Web-Entwickler &ndash; aber kein Web-Designer. Hauptsächlich entwickle ich komplett
+                    individualisierte Web-Applikationen.
+                    Vollständig auf ein Gebiet festlegen konnte mich nie. Daher fühle ich mich
+                   client- und serverseitig gleichermaßen wohl, genau so wie auch auf der Konsole,
+                   in der Konzeption oder beim Ergründen von Kundenwünschen.
+            </div>
+            <div class="span4">
+                <h2>Onemedia GmbH</h2>
+                <p>Seit 2007 arbeite ich als Web-Entwickler bei der Onemedia GmbH in München.
+                    Dort konzipiere, entwickle und pflege ich Web-Applikationen und Websites.
+                    Seit 2008 bin ich außerdem als Teamleiter und seit 2013 als stellvertretender
+                    Geschäftsführer tätig.
+                    </p>
+                <p><a href="http://www.onemedia.de" target="_blank"><i class="icon-external-link"></i> Onemedia GmbH</a></p>
+            </div>
+        </section>
+
+        <hr />
+
+        <section id="skills">
+            <h2>Techniken</h2>
+
+            <p>Für die Entwicklung nutze ich viele verschiedene Konzepte, Techniken, Frameworks, Toolkits und
+                Bibliotheken &ndash; manche mehr, manche weniger. Einige benötige ich täglich, mit anderen habe
+                ich bisher nur experimentiert.</p>
+
+            <ul class="inline well">
+                {% for skill, size in skills %}
+                    <li style="font-size: {{ size }}%">{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <hr />
+
+        <section id="about">
+            <h2>Über mich</h2>
+            <p>Neben der Programmierung schreibe und rede ich auch sehr gerne darüber oder unterstütze andere. Jede
+            freie Minute probiere ich neue Tools und Bibliotheken aus, lese Dokumentationen, Tutorials, IT-Nachrichten
+            oder sehe Video-Trainings. Ich möchte ständig neue Dinge lernen und mich verbessern.</p>
+            <div class="row-fluid">
+                <div class="span6">
+                    <h3>Konferenzen</h3>
+                    <p>Sehr gerne besuche ich Konferenzen und Workshops für Web-Entwickler. So war ich etwa mehrfach auf der
+                        <a href="http://live.symfony.com" target="_blank">Symfony Live Paris</a>, dem
+                        <a href="http://www.symfonyday.com/de">Symfony Day in Köln</a> und diversen Roadshows von Adobe, Amazon
+                        und Microsoft sowie einem <a href="http://www.enterprisewcms.com/adobe-cq5/">CQ5-Training</a>.
+                    </p>
+                </div>
+                <div class="span6">
+                    <h3>User Groups</h3>
+                    <p>In München besuche ich regelmäßig die
+                        <a href="http://www.meetup.com/sfugmunich/" target="_blank">Symfony User Group</a> und die
+                        <a href="http://www.meetup.com/phpugmunich/" target="_blank">PHP User Group</a>. Bei Onemedia haben wir
+                        die Symfony User Group auch schon mehrfach selbst ausgerichtet.</p>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span6">
+                    <h3>Veröffentlichungen</h3>
+                    <p>Von Zeit zu Zeit schreibe ich Artikel für unser Onemedia-Entwicklerblog
+                       <a href="http://devtig.es" target="_blank">Devtig.es</a>. Ich wirke bei vielen Texten und
+                        Referenzen der <a href="http://onemedia.de" target="_blank">Onemedia-Homepage</a> mit.
+                    </p>
+                </div>
+                <div class="span6">
+                    <h3>Contributions</h3>
+                    <p>
+                        Auf <a href="https://github.com/bicpi" target="_blank">GitHub</a> pflege ich kleine OpenSource
+                            Bibliotheken und Bundles - auch <a href="https://github.com/bicpi/homepage" target="_blank">diese Website</a>.
+                        Von Zeit zu Zeit erstelle ich Contributions für andere Projekte wie die
+                            <a href="https://github.com/symfony/symfony-docs" target="_blank">Symfony-Dokumentation</a>.
+                        Ich beteilige mich gerne an Diskussionen auf <a href="https://github.com/bicpi" target="_blank">GitHub</a>,
+                            <a href="http://stackoverflow.com/users/1182743/philipp-rieber" target="_blank">StackOverflow</a> oder diversen Blogs und Foren.
+                    </p>
+                </div>
+            </div>
+            <br >
+
+            <div class="well">
+                <p>Vor einigen Jahren habe ich zwei Bücher über Web-Entwicklung mit PHP veröffentlicht, eines davon später noch
+                in einer vollständig überarbeiteten zweiten Auflage. Die Bücher entstanden noch zu einer Zeit ohne stabile PHP-Frameworks
+                und vor Meilensteinen wie jQuery etc. ;-)</p>
+                <div class="row-fluid">
+                    <div class="span4 text-center">
+                        <h6>Dynamische Webseiten in der Praxis</h6>
+                        <p><a href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Eclipse/dp/3826616154" target="_blank"><img src="/img/cover_dyn_web_book_I_small.jpg" width="130" height="184" alt="Buchcover: Dynamische Webseiten in der Praxis, Auflage 1, 2006" /></a></p>
+                        <p><small>1. Auflage 2006, ISBN 978-3826616150</small></p>
+                    </div>
+                    <div class="span4 text-center">
+                        <h6>Dynamische Webseiten in der Praxis</h6>
+                        <p><a href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Professional/dp/3826617827" target="_blank"><img src="/img/cover_dyn_web_book_II_small.gif" width="130" height="180" alt="Buchcover: Dynamische Webseiten in der Praxis, Auflage 2, 2009" /></a></p>
+                        <p><small>2. Auflage 2009, ISBN 978-3826617829<br />vollständig überarbeitet</small></p>
+                    </div>
+                    <div class="span4 text-center">
+                        <h6>PHP5 und MySQL5 - Das Kochbuch</h6>
+                        <p><a href="http://www.amazon.de/PHP-MySQL-Kochbuch-L%C3%B6sungen-Practices/dp/3826616804" target="_blank"><img src="/img/cover_cookbook_small.jpg" width="130" height="181" alt="Buchcover: PHP5 und MySQL5 Kochbuch, 2007" /></a></p>
+                        </p><small>1. Auflage 2007, ISBN 978-3826616808</small></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr />
+
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <div class="well pull-left">
+                    <form action="/#contact" method="post" class="form-horizontal pull-left" style="margin-right: 40px;">
+                        <p>Senden Sie mir eine Nachricht.</p>
+                        {{ form_errors(form) }}
+                        <div class="control-group">
+                            {{ form_errors(form.name) }}
+                            {{ form_widget(form.name, { attr: { class: 'input-xlarge', placeholder: 'Ihr Name' } }) }}
+                        </div>
+                        <div class="control-group">
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email, { attr: { class: 'input-xlarge', placeholder: 'you@example.com' } }) }}
+                        </div>
+                        <div class="control-group">
+                            {{ form_errors(form.message) }}
+                            {{ form_widget(form.message, { attr: { class: 'input-xlarge', placeholder: 'Ihre Nachricht ...', cols: '76', rows: '8' } }) }}
+                        </div>
+                        <div class="control-group">
+                            {{ form_rest(form) }}
+                            <button type="submit" class="btn btn-primary">Abschicken</button>
+                        </div>
+                    </form>
+                    <div class="pull-right">
+                        <address>
+                            <strong>Philipp Rieber</strong><br>
+                            Zentnerstraße 18<br>
+                            80798 München<br><br>
+                            <script type="text/javascript">ylgjjeeo="i69i6ei66i6fi40i70i68i69i6ci69i70i70i2di72i69i65i62i65i72i2ei6ei65i74";document.write(unescape(ylgjjeeo.replace(/i/g, "%")));</script>
+                        </address>
+                        {% include 'social_bar.twig' %}
+                    </div>
+            </div>
+            <div class="pull-right" style="width: 42%">
+                <a class="twitter-timeline" href="https://twitter.com/bicpi" data-widget-id="328216308216897537">Tweets von @bicpi</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+<div id="footer">
+    <div class="container">
+        {% set Y = 'now'|date('Y') %}
+        <p>&copy; 2013{% if Y > 2013 %}-{{ Y }}{% endif %} &ndash; Philipp Rieber</p>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

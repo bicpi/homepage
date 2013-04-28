@@ -1,0 +1,115 @@
+200:
+  - PHP
+  - Symfony
+  - Doctrine
+  - Swiftmailer
+  - MySQL
+  - HTML
+  - HTML5
+  - CSS
+  - CSS3
+  - XML
+  - JavaScript
+  - jQuery
+  - YAML
+  - OOP
+  - Design Patterns
+  - Symfony Components
+  - Symfony Ecosystem
+  - Ajax
+  - git
+  - Twig
+  - Amazon Web Services
+
+190:
+  - Assetic
+  - Sass
+  - GitHub
+  - Bitbucket
+  - EC2
+  - Elastic Beanstalk
+  - SES
+  - RDS
+  - Route 53
+  - S3
+
+180:
+  - PHPStorm
+  - PHPExcel
+  - DNS
+  - Domains
+  - Webhosting
+  - LAMP
+
+170:
+  - Ubuntu
+  - Google APIs
+  - Twitter Bootstrap
+
+160:
+  - Scrum
+  - jQueryUI
+  - Subversion
+
+150:
+  - Apache
+  - mPDF
+  - Bash Scripting
+  - WAMP
+  - Unit Tests
+
+140:
+  - phpunit
+  - phpMyAdmin
+  - Chive
+  - Windows
+  - Office
+
+130:
+  - RSS
+  - Atom
+  - Zend Framework
+  - Composer
+  - Packagist
+  - Goutte
+  - Gaufrette
+  - VirtualBox
+  - ElastiCache
+
+120:
+  - NoSQL
+  - Postfix
+  - Apple
+  - Netbeans
+  - Flash
+  - Flex
+  - Contao
+  - Smarty
+  - Less
+  - CoffeeScript
+
+110:
+  - MongoDB
+  - nginx
+  - Java
+  - CQ5
+  - WordPress
+  - Node.js
+  - Puppet
+  - Chef
+  - Vagrant
+
+100:
+  - Python
+  - CQ5
+  - TDD
+  - PSR
+  - Typo3
+
+90:
+  - Redis
+  - Backbone.js
+
+80:
+  - Behat
+  - Mink

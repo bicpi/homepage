@@ -5,6 +5,15 @@
         "psr-0": { "": "src/" }
     },
     "require": {
-        "twitter/bootstrap": "2.3.x"
+        "twitter/bootstrap": "2.3.x",
+        "silex/silex": "1.0.*@dev",
+        "twig/twig": ">=1.8,<2.0-dev",
+        "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
+        "symfony/form": "~2.1.4",
+        "symfony/validator": "~2.1,<2.2",
+        "symfony/config": "~2.1",
+        "symfony/translation": "~2.1",
+        "symfony/twig-bridge": "~2.1",
+        "symfony/yaml": "~2.1"
     }
 }
