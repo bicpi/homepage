@@ -65,9 +65,9 @@
         <section class="hero-unit" id="jumbotron">
             <h1 style="margin-left: -40px">Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.</h1>
             <div style="padding-left: 25px; padding-top: 10px">
-                <h2 style="display:inline">Ich bin leidenschaftlicher Web-Entwickler.</h2>
+                <h2 style="display:inline">Ich leidenschaftlicher Web-Entwickler.</h2>
                 <h3 style="display:inline">Meine Werkzeuge sind PHP, Symfony, Doctrine, HTML5, JavaScript, CSS3, jQuery, Twig, git, Ubuntu, Amazon Web Services, Datenbanken und viele mehr.</h3>
-                <h4 style="display:inline">Ich lebe in München.</h4>
+                <h4 style="display:inline">Ich bin {{ age }} Jahre alt und lebe in München.</h4>
             </div>
         </section>
 
@@ -78,15 +78,16 @@
                 Von der Hardware-Bastelei über die ersten Schritte mit Linux
                 war ich spätestens mit dem Studium von selfHTML komplett vom
                 Web-Entwickeln infiziert. Mit HTML, CSS, PHP, JavaScript,
-                Datenbanken, CMS, OOP, Frameworks u.v.m.</p>
+                Datenbanken, Flash, CMS, OOP bis zu Frameworks, Servern, git,
+                AWS, Scrum u.v.m. habe ich eine Technik nach der anderen gelernt.</p>
             </div>
             <div class="span4">
                 <h2>Web-Entwicklung</h2>
                 <p>Ich bin Web-Entwickler &ndash; aber kein Web-Designer. Hauptsächlich entwickle ich komplett
                     individualisierte Web-Applikationen.
-                    Vollständig auf ein Gebiet festlegen konnte mich nie. Daher fühle ich mich
-                   client- und serverseitig gleichermaßen wohl, genau so wie auch auf der Konsole,
-                   in der Konzeption oder beim Ergründen von Kundenwünschen.
+                    Ich bin nicht auf ein Gebiet festgelegt und fühle mich
+                   client- und serverseitig gleichermaßen wohl &ndash; genau so wie auf der Konsole,
+                   der Konzeption, im Scrum-Team oder beim Ergründen von Kundenwünschen.
             </div>
             <div class="span4">
                 <h2>Onemedia GmbH</h2>
@@ -102,11 +103,8 @@
         <hr id="skills" />
         <section>
             <h2>Techniken</h2>
-
             <p>Für die Entwicklung nutze ich viele verschiedene Konzepte, Techniken, Frameworks, Toolkits und
-                Bibliotheken &ndash; manche mehr, manche weniger. Einige benötige ich täglich, mit anderen habe
-                ich bisher nur experimentiert.</p>
-
+                Bibliotheken &ndash; manche mehr, manche weniger.</p>
             <ul class="inline well">
                 {% for skill, size in skills %}
                     <li style="font-size: {{ size }}%">{{ skill }}</li>
@@ -144,6 +142,7 @@
                     <p>Von Zeit zu Zeit schreibe ich Artikel für unser Onemedia-Entwicklerblog
                        <a href="http://devtig.es" target="_blank">Devtig.es</a>. Ich wirke bei vielen Texten und
                         Referenzen der <a href="http://onemedia.de" target="_blank">Onemedia-Homepage</a> mit.
+                        Vor einigen Jahren habe ich zwei Bücher veröffentlicht.
                     </p>
                 </div>
                 <div class="span6">

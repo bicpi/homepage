@@ -134,7 +134,13 @@ $app->match(
 
         shuffle_assoc($skills);
 
-        return $app['twig']->render('home.twig', array('skills' => $skills, 'form' => $form->createView()));
+        $birthDate = new \DateTime('1979-02-06');
+
+        return $app['twig']->render('home.twig', array(
+                'age' => $birthDate->diff(new DateTime('now'))->y,
+                'skills' => $skills,
+                'form' => $form->createView(),
+        ));
     }
 )
     ->method('GET|POST');;

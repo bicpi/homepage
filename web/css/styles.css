@@ -86,7 +86,7 @@ hr {
     border-color: #BEDCF4;
 }
 
-#skills ul.inline li {
+#skills + section ul.inline li {
     line-height: 30px;
     padding-left: 12px;
     padding-right: 12px;
