@@ -32,6 +32,7 @@
   - RDS
   - Route 53
   - S3
+  - Assetic
 
 180:
   - PHPStorm
@@ -40,6 +41,7 @@
   - Domains
   - Webhosting
   - LAMP
+  - HTTP
 
 170:
   - Ubuntu
@@ -49,7 +51,8 @@
 160:
   - Scrum
   - jQueryUI
-  - Subversion
+  - REST
+  - Webservices
 
 150:
   - Apache
@@ -66,6 +69,7 @@
   - Office
   - Travis CI
   - Jenkins
+  - Subversion
 
 130:
   - RSS
@@ -77,6 +81,10 @@
   - Gaufrette
   - VirtualBox
   - ElastiCache
+  - SEO
+  - jQuery Mobile
+  - Monolog
+  - Social Media
 
 120:
   - NoSQL
@@ -89,6 +97,11 @@
   - Smarty
   - Less
   - CoffeeScript
+  - Phhotoshop
+  - Hardware
+  - ExtJS
+  - Android
+  - XML-RPC
 
 110:
   - MongoDB
@@ -100,6 +113,7 @@
   - Puppet
   - Chef
   - Vagrant
+  - Soap
 
 100:
   - Python
@@ -107,6 +121,7 @@
   - TDD
   - PSR
   - Typo3
+  - dojo
 
 90:
   - Redis

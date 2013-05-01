@@ -26,7 +26,16 @@ $app->register(
         'twig.form.templates' => array('form_div_layout.html.twig', 'form_layout.twig')
     )
 );
-$app->register(new Silex\Provider\SwiftmailerServiceProvider());
+$app->register(new Silex\Provider\SwiftmailerServiceProvider(), array(
+    'swiftmailer.options' => array(
+        'host' => '***REMOVED***',
+        'port' => '25',
+        'username' => '***REMOVED***',
+        'password' => '***REMOVED***',
+        'encryption' => 'tls',
+        'auth_mode' => null
+    )
+));
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(

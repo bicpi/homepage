@@ -65,7 +65,7 @@
         <section class="hero-unit" id="jumbotron">
             <h1 style="margin-left: -40px">Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.</h1>
             <div style="padding-left: 25px; padding-top: 10px">
-                <h2 style="display:inline">Ich leidenschaftlicher Web-Entwickler.</h2>
+                <h2 style="display:inline">Ich bin leidenschaftlicher Web-Entwickler.</h2>
                 <h3 style="display:inline">Meine Werkzeuge sind PHP, Symfony, Doctrine, HTML5, JavaScript, CSS3, jQuery, Twig, git, Ubuntu, Amazon Web Services, Datenbanken und viele mehr.</h3>
                 <h4 style="display:inline">Ich bin {{ age }} Jahre alt und lebe in München.</h4>
             </div>
@@ -236,5 +236,15 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/main.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-19245446-3']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
 </body>
 </html>
