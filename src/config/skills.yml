@@ -20,6 +20,7 @@
   - git
   - Twig
   - Amazon Web Services
+  - SQL
 
 190:
   - Assetic
@@ -47,6 +48,7 @@
   - Ubuntu
   - Google APIs
   - Twitter Bootstrap
+  - i18n/l10n
 
 160:
   - Scrum
@@ -63,13 +65,12 @@
 
 140:
   - phpunit
-  - phpMyAdmin
-  - Chive
   - Windows
   - Office
   - Travis CI
   - Jenkins
-  - Subversion
+  - User Stories
+  - Pimple
 
 130:
   - RSS
@@ -85,6 +86,14 @@
   - jQuery Mobile
   - Monolog
   - Social Media
+  - Subversion
+  - Chive
+  - phpMyAdmin
+  - Navicat
+  - HeidSQL
+  - Notepad++
+  - Zend Studio
+
 
 120:
   - NoSQL
@@ -102,6 +111,9 @@
   - ExtJS
   - Android
   - XML-RPC
+  - Nagios
+  - Putty
+  - duplicity
 
 110:
   - MongoDB
@@ -114,6 +126,11 @@
   - Chef
   - Vagrant
   - Soap
+  - bind
+  - SQS
+  - SNS
+  - VPN
+  - iPhone
 
 100:
   - Python
@@ -122,6 +139,7 @@
   - PSR
   - Typo3
   - dojo
+  - Action Script
 
 90:
   - Redis
