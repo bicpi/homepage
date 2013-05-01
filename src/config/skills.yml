@@ -48,7 +48,8 @@
   - Ubuntu
   - Google APIs
   - Twitter Bootstrap
-  - i18n/l10n
+  - i18n
+  - l10n
 
 160:
   - Scrum
@@ -92,7 +93,6 @@
   - Navicat
   - HeidSQL
   - Notepad++
-  - Zend Studio
 
 
 120:
@@ -140,6 +140,7 @@
   - Typo3
   - dojo
   - Action Script
+  - Zend Studio
 
 90:
   - Redis
