@@ -60,7 +60,7 @@
             {% endfor %}
         {% endfor %}
 
-        <section class="hero-unit" id="jumbotron">
+        <section class="hero-unit hidden-phone" id="jumbotron">
             <h1 style="margin-left: -40px">Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.</h1>
             <div style="padding-left: 25px; padding-top: 10px">
                 <h2 style="display:inline">Ich bin leidenschaftlicher Web-Entwickler.</h2>
@@ -184,52 +184,51 @@
         <hr id="contact" />
         <section>
             <h2>Kontakt</h2>
-            <div class="well pull-left">
-                    <form action="/#contact" method="post" class="form-horizontal pull-left" style="margin-right: 40px;">
-                        <p>Senden Sie mir eine Nachricht.</p>
+            <div class="row-fluid">
+                <div class="span6">
+                    <form action="/#contact" method="post" class="form">
+                        <p>Senden Sie mir eine Nachricht oder einen Tweet.</p>
                         {{ form_errors(form) }}
                         <div class="control-group">
                             {{ form_errors(form.name) }}
-                            {{ form_widget(form.name, { attr: { class: 'input-xlarge', placeholder: 'Ihr Name' } }) }}
+                            {{ form_widget(form.name, { attr: { class: 'input-block-level', placeholder: 'Ihr Name' } }) }}
                         </div>
                         <div class="control-group">
                             {{ form_errors(form.email) }}
-                            {{ form_widget(form.email, { attr: { class: 'input-xlarge', placeholder: 'you@example.com' } }) }}
+                            {{ form_widget(form.email, { attr: { class: 'input-block-level', placeholder: 'you@example.com' } }) }}
                         </div>
                         <div class="control-group">
                             {{ form_errors(form.message) }}
-                            {{ form_widget(form.message, { attr: { class: 'input-xlarge', placeholder: 'Ihre Nachricht ...', cols: '76', rows: '8' } }) }}
+                            {{ form_widget(form.message, { attr: { class: 'input-block-level', placeholder: 'Ihre Nachricht ...', cols: '76', rows: '8' } }) }}
                         </div>
                         <div class="control-group">
                             {{ form_rest(form) }}
                             <button type="submit" class="btn btn-primary">Abschicken</button>
                         </div>
                     </form>
-                    <div class="pull-right">
-                        <address>
-                            <strong>Philipp Rieber</strong><br>
-                            Zentnerstraße 18<br>
-                            80798 München<br><br>
-                            <script type="text/javascript">ylgjjeeo="i69i6ei66i6fi40i70i68i69i6ci69i70i70i2di72i69i65i62i65i72i2ei6ei65i74";document.write(unescape(ylgjjeeo.replace(/i/g, "%")));</script>
-                        </address>
-                        {% include 'social_bar.twig' %}
-                    </div>
-            </div>
-            <div class="pull-right" style="width: 42%">
-                <a class="twitter-timeline" href="https://twitter.com/bicpi" data-widget-id="328216308216897537">Tweets von @bicpi</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+                <div class="span6">
+                    <a class="twitter-timeline" href="https://twitter.com/bicpi" data-widget-id="328216308216897537">Tweets von @bicpi</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
             </div>
         </section>
     </div>
 
 </div>
 
-<div id="footer">
+<footer>
     <div class="container">
+        <address>
+            <strong>Philipp Rieber &ndash; <script type="text/javascript">ylgjjeeo="i69i6ei66i6fi40i70i68i69i6ci69i70i70i2di72i69i65i62i65i72i2ei6ei65i74";document.write(unescape(ylgjjeeo.replace(/i/g, "%")));</script></strong><br />
+            Zentnerstraße 18, 80798 München<br>
+            {% include 'social_bar.twig' %}
+        </address>
+
         {% set Y = 'now'|date('Y') %}
-        <p>&copy; 2013{% if Y > 2013 %}-{{ Y }}{% endif %} &ndash; Philipp Rieber</p>
+        <p>&copy; 2013{% if Y > 2013 %}-{{ Y }}{% endif %}</p>
     </div>
-</div>
+</footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>

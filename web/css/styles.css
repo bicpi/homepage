@@ -35,8 +35,9 @@ body {
     border-radius: 0 3px 3px 0;
 }
 
-#footer {
+footer {
     min-height: 50px;
+    text-align: center;
     background-color: #E9F2F9;
     padding-top: 6px;
     margin-top: 40px;
@@ -50,14 +51,14 @@ hr {
 .social-bar a {
     text-decoration: none;
 }
-.social-bar div {
+.social-bar li {
     border-radius: 25px 25px 25px 25px;
     height: 25px;
     background: #9CC4E4;
     margin-right: 10px;
     margin-top: 7px;
     width: 25px;
-    float: left;
+    display: inline-block;
 }
 .social-bar i, .social-bar img {
     text-align: center;
