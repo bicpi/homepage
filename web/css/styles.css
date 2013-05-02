@@ -77,3 +77,10 @@ hr {
     padding-left: 12px;
     padding-right: 12px;
 }
+
+
+@media (max-width: 767px) AND (max-width: 480px) {
+    body {
+        padding-top: 0;
+    }
+}
