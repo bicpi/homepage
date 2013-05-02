@@ -60,9 +60,9 @@
             {% endfor %}
         {% endfor %}
 
-        <section class="hero-unit hidden-phone" id="jumbotron">
-            <h1 style="margin-left: -40px">Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.</h1>
-            <div style="padding-left: 25px; padding-top: 10px">
+        <section class="hero-unit" id="jumbotron">
+            <h1>Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.</h1>
+            <div>
                 <h2 style="display:inline">Ich bin leidenschaftlicher Web-Entwickler.</h2>
                 <h3 style="display:inline">Meine Werkzeuge sind PHP, Symfony, Doctrine, HTML5, JavaScript, CSS3, jQuery, Twig, git, Ubuntu, Amazon Web Services, Datenbanken und viele mehr.</h3>
                 <h4 style="display:inline">Ich bin {{ age }} Jahre alt und lebe in München.</h4>
@@ -214,7 +214,6 @@
             </div>
         </section>
     </div>
-
 </div>
 
 <footer>
@@ -229,6 +228,7 @@
         <p>&copy; 2013{% if Y > 2013 %}-{{ Y }}{% endif %}</p>
     </div>
 </footer>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>

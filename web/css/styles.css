@@ -19,6 +19,16 @@ body {
     border: 1px #E9F2F9 solid;
     padding-left: 450px;
 }
+#jumbotron h1 {
+    margin-left: -40px;
+}
+#jumbotron div {
+    padding-left: 25px;
+    padding-top: 10px;
+}
+#jumbotron div * {
+    display: inline;
+}
 
 .navbar .nav li a {
     font-weight: bold;
@@ -39,8 +49,8 @@ footer {
     min-height: 50px;
     text-align: center;
     background-color: #E9F2F9;
-    padding-top: 6px;
-    margin-top: 40px;
+    padding: 30px 0;
+    margin-top: 70px;
     border-top: 1px solid #BEDCF4;
 }
 
@@ -79,8 +89,22 @@ hr {
 }
 
 
-@media (max-width: 767px) AND (max-width: 480px) {
+@media (max-width: 767px) {
     body {
         padding-top: 0;
+    }
+
+    #jumbotron {
+        background: none;
+        padding-left: 0px;
+    }
+    #jumbotron h1 {
+        margin-left: 25px;
+    }
+
+    footer .container {
+        width: auto;
+        margin-right: auto;
+        margin-left: auto;
     }
 }
