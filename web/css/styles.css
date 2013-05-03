@@ -16,6 +16,7 @@ body {
 #jumbotron {
     background: url(../img/phil.jpg) -100px -75px no-repeat;
     min-height: 300px;
+    max-height: 970px;
     border: 1px #E9F2F9 solid;
     padding-left: 450px;
 }
@@ -95,13 +96,26 @@ hr {
     }
 
     #jumbotron {
-        background: none;
+        padding-top: 400px;
         padding-left: 0px;
+        font-size: 50%;
     }
     #jumbotron h1 {
         margin-left: 25px;
+        border-radius: 5px;
+        background: white;
+        padding: 5px;
+        border: 1px solid #DDD;
     }
-
+    #jumbotron div {
+        margin-left: 25px;
+        margin-top: 10px;
+        padding: 0;
+        border-radius: 5px;
+        background: white;
+        padding: 5px;
+        border: 1px solid #DDD;
+    }
     footer .container {
         width: auto;
         margin-right: auto;
