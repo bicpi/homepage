@@ -14,7 +14,7 @@ body {
 }
 
 #jumbotron {
-    background: url(../img/phil.jpg) -100px -75px no-repeat;
+    background: url(../img/phil-gradient.jpg) -100px -75px no-repeat;
     min-height: 300px;
     max-height: 970px;
     border: 1px #E9F2F9 solid;
@@ -98,7 +98,6 @@ hr {
     #jumbotron {
         padding-top: 400px;
         padding-left: 0px;
-        font-size: 50%;
     }
     #jumbotron h1 {
         margin-left: 25px;
