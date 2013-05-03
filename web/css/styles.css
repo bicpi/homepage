@@ -13,8 +13,12 @@ body {
     margin: 60px 0;
 }
 
+.hero-unit {
+    padding: 60px 20px;
+}
+
 #jumbotron {
-    background: url(../img/phil-gradient.jpg) -100px -75px no-repeat;
+    background: url(../img/phil-gradient.jpg) -130px -75px no-repeat;
     min-height: 300px;
     max-height: 970px;
     border: 1px #E9F2F9 solid;
