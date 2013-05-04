@@ -6,7 +6,7 @@
     },
     "require": {
         "twitter/bootstrap": "2.3.x",
-        "silex/silex": "1.0.*@dev",
+        "silex/silex": "1.0.*",
         "twig/twig": ">=1.8,<2.0-dev",
         "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
         "symfony/form": "~2.1.4",
@@ -14,6 +14,7 @@
         "symfony/config": "~2.1",
         "symfony/translation": "~2.1",
         "symfony/twig-bridge": "~2.1",
-        "symfony/yaml": "~2.1"
+        "symfony/yaml": "~2.1",
+        "kriswallsmith/assetic": "1.1.*@dev"
     }
 }

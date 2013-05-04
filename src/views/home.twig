@@ -1,26 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="utf-8">
     <title>Philipp Rieber | Web-Entwickler | München</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Homepage von Philipp Rieber | Web-Entwickler aus München">
     <meta name="author" content="Philipp Rieber">
-
-    <link type="text/plain" rel="author" href="/humans.txt" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Condensed">
-    <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/styles.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    {#<link rel="shortcut icon" href="/favicon.ico">#}
+    <link type="text/plain" rel="author" href="/humans.txt">
+    <link href="/all.css" rel="stylesheet">
+    {#<!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="/favicon.ico">#}
 </head>
 
 <body data-spy="scroll" data-target=".navbar" id="home">
@@ -98,19 +87,19 @@
             </div>
         </section>
 
-        <hr id="skills" />
+        <hr id="skills">
         <section>
             <h2>Techniken</h2>
             <p>Für die Entwicklung nutze ich viele verschiedene Konzepte, Techniken, Frameworks, Toolkits und
                 Bibliotheken &ndash; manche mehr, manche weniger.</p>
-            <ul class="inline well">
+            <ul class="cloud inline well">
                 {% for skill, size in skills %}
                     <li style="font-size: {{ size }}%">{{ skill }}</li>
                 {% endfor %}
             </ul>
         </section>
 
-        <hr id="about" />
+        <hr id="about">
         <section>
             <h2>Über mich</h2>
             <p>Neben der Programmierung schreibe und rede ich auch sehr gerne darüber oder unterstütze andere. Jede
@@ -155,7 +144,7 @@
                     </p>
                 </div>
             </div>
-            <br >
+            {#<br>#}
 
             <div class="well">
                 <p>Vor einigen Jahren habe ich zwei Bücher über Web-Entwicklung mit PHP veröffentlicht, eines davon später noch
@@ -181,7 +170,7 @@
             </div>
         </section>
 
-        <hr id="contact" />
+        <hr id="contact">
         <section>
             <h2>Kontakt</h2>
             <div class="row-fluid">
@@ -223,16 +212,12 @@
             Zentnerstraße 18, 80798 München<br>
             {% include 'social_bar.twig' %}
         </address>
-
         {% set Y = 'now'|date('Y') %}
         <p>&copy; 2013{% if Y > 2013 %}-{{ Y }}{% endif %}</p>
     </div>
 </footer>
 
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
+<script src="/all.js"></script>
 <script type="text/javascript">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-19245446-3']);

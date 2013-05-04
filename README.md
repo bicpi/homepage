@@ -1,4 +1,4 @@
-philipp-rieber.de
-=================
+philipp-rieber.net
+==================
 
-Private Homepage
+Private Homepage von Philipp Rieber <info@philipp-rieber.net>

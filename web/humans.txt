@@ -1,13 +1,13 @@
 /* humanstxt.org */
 
 /* TEAM */
-  Author: Philipp Rieber
-  Site: http://philipp-rieber.net/#contact
-  Twitter: bicpi
-  Location: Munich, Germany
+    Author: Philipp Rieber
+    Site: http://philipp-rieber.net/#contact
+    Twitter: bicpi
+    Location: Munich, Germany
 
 /* SITE */
-	Language: German
-	Standards: HTML5
-	Components: Silex, Bootstrap, jQuery
-	Software: PHPStorm, VirtualBox, Ubuntu, Composer
+    Language: German
+    Standards: HTML5
+    Components: Silex, Bootstrap, jQuery
+    Software: PHPStorm, VirtualBox, Ubuntu, Composer
