@@ -29,7 +29,6 @@ $uglifyJs = new UglifyJsFilter();
 $js = new AssetCollection(array(
     new HttpAsset('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'),
     new FileAsset('src/assets/js/bootstrap.min.js'),
-    new FileAsset('src/assets/js/html5shiv.js'),
     new FileAsset('src/assets/js/main.js'),
 ),
     array($uglifyJs)
