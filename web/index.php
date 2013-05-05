@@ -111,6 +111,7 @@ $app->match(
                 $message = \Swift_Message::newInstance('Nachricht von der Homepage')
                     ->setFrom(array('info@philipp-rieber.net' => 'philipp-rieber.net'))
                     ->setTo('info@philipp-rieber.net')
+                    ->setReplyTo($data['email'])
                     ->setBody(
                         sprintf(
                             "Homepage-Nachricht von %s <%s>\n\n\n%s",
