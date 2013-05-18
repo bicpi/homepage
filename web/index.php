@@ -1,6 +1,4 @@
 <?php
-ini_set('display_errors', true);
-error_reporting(-1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 function shuffle_assoc(&$array) {
@@ -18,7 +16,9 @@ function shuffle_assoc(&$array) {
 }
 
 $app = new Silex\Application();
-$app['debug'] = true;
+if (0 === strpos($_SERVER['SERVER_ADDR'], '192.168.178.')) {
+    $app['debug'] = true;
+}
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
