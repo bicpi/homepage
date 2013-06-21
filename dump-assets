@@ -18,7 +18,7 @@ $uglifyCss = new UglifyCssFilter('/usr/local/bin/uglifycss');
 
 $css = new AssetCollection(array(
     new FileAsset('src/assets/css/bootstrap.less', array($less)),
-    new HttpAsset('//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css'),
+    new HttpAsset('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'),
     new FileAsset('src/assets/css/styles.scss', array($sass)),
 ),
     array($uglifyCss)
