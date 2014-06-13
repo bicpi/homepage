@@ -7,5 +7,5 @@
 }(document, 'script', 'facebook-jssdk'));
 
 $(function(){
-    $('#content').tooltip(options)
+    $('.with-tooltip').tooltip();
 });
