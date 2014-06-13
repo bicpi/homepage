@@ -16,7 +16,7 @@ function shuffle_assoc(&$array) {
 }
 
 $app = new Silex\Application();
-if (0 === strpos($_SERVER['SERVER_ADDR'], '192.168.178.')) {
+if (0 === strpos($_SERVER['REMOTE_ADDR'], 'REMOTE_ADDR')) {
     $app['debug'] = true;
 }
 
