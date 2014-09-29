@@ -1,0 +1,7 @@
+---
+    php_ppa: php5-5.6
+    project_root: /var/www
+    doc_root: /var/www/web
+    sys_packages: ["git"]
+    dist: precise
+    php_packages: ["php5-cli","php5-intl"]
