@@ -1,0 +1,9 @@
+{
+    "name": "bicpi-homepage",
+    "description": "The bicpi homepage",
+    "dependencies": {
+        "uglify-js2": "*",
+        "uglifycss": "*",
+        "less": "*"
+    }
+}

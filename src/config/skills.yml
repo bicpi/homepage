@@ -50,14 +50,17 @@
   - Twitter Bootstrap
   - i18n
   - l10n
+  - DevOps
 
 160:
   - Scrum
   - jQueryUI
   - REST
   - Webservices
+  - Twelve-Factor App
 
 150:
+  - Vagrant
   - Apache
   - mPDF
   - Bash Scripting
@@ -73,8 +76,11 @@
   - User Stories
   - Pimple
   - Responsive
+  - Heroku
+  - Mac
 
 130:
+  - DigitalOcean
   - RSS
   - Atom
   - Zend Framework
@@ -94,7 +100,9 @@
   - Navicat
   - HeidSQL
   - Notepad++
-
+  - Titanium
+  - PhoneGap
+  - Ansible
 
 120:
   - NoSQL
@@ -125,7 +133,6 @@
   - Node.js
   - Puppet
   - Chef
-  - Vagrant
   - Soap
   - bind
   - SQS

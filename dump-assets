@@ -12,9 +12,9 @@ use Assetic\Filter\UglifyCssFilter;
 use Assetic\Filter\Sass\SassFilter;
 use Assetic\Filter\UglifyJsFilter;
 
-$less = new LessFilter('/usr/bin/nodejs', array('/usr/local/lib/node_modules'));
+$less = new LessFilter(trim(`which node`), array(__DIR__.'/node_modules'));
 $sass = new SassFilter();
-$uglifyCss = new UglifyCssFilter('/usr/local/bin/uglifycss', '/usr/bin/nodejs');
+$uglifyCss = new UglifyCssFilter(__DIR__.'/node_modules/.bin/uglifycss');
 
 $css = new AssetCollection(array(
     new FileAsset('src/assets/css/bootstrap.less', array($less)),
@@ -25,7 +25,7 @@ $css = new AssetCollection(array(
 );
 file_put_contents('web/all.css', $css->dump());
 
-$uglifyJs = new UglifyJsFilter('/usr/local/bin/uglifyjs', '/usr/bin/nodejs');
+$uglifyJs = new UglifyJsFilter(__DIR__.'/node_modules/.bin/uglifyjs2');
 $js = new AssetCollection(array(
     new HttpAsset('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'),
     new FileAsset('src/assets/js/bootstrap.min.js'),
