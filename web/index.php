@@ -3,8 +3,6 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Yaml\Yaml;
-use Neutron\ReCaptcha\ReCaptcha;
-use Neutron\ReCaptcha\ReCaptchaServiceProvider;
 
 function shuffle_assoc(&$array) {
     $keys = array_keys($array);
@@ -50,10 +48,6 @@ $app->register(
     )
 );
 $app->register(new Silex\Provider\FormServiceProvider());
-$app->register(new ReCaptchaServiceProvider(), array(
-    'recaptcha.public-key'  => $app['parameters']['recaptcha_public_key'],
-    'recaptcha.private-key' => $app['parameters']['recaptcha_private_key'],
-));
 
 $app->before(
     function () use ($app) {
@@ -111,11 +105,9 @@ $app->match(
             )
             ->getForm();
 
-        $recaptchaHasError = false;
         if ('POST' == $request->getMethod()) {
-            $recaptchaHasError = !$app['recaptcha']->bind($app['request'])->isValid();
             $form->bind($request);
-            if (!$recaptchaHasError && $form->isValid()) {
+            if ($form->isValid()) {
                 $data = $form->getData();
 
                 $message = \Swift_Message::newInstance('Nachricht von der Homepage')
@@ -160,8 +152,6 @@ $app->match(
                 'age' => $birthDate->diff(new DateTime('now'))->y,
                 'skills' => $skills,
                 'form' => $form->createView(),
-                'recaptchaPubKey' => $app['parameters']['recaptcha_public_key'],
-                'recaptchaHasError' => $recaptchaHasError,
         ));
     }
 )
