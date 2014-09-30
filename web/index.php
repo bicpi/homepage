@@ -112,11 +112,12 @@ $app->match(
             )
             ->getForm();
 
+        $recaptcha = $app['recaptcha'];
+        $recaptchaResponse = null;
         if ('POST' == $request->getMethod()) {
-                ;
-
             $form->bind($request);
-            if ($app['recaptcha']->bind($app['request'])->isValid() && $form->isValid()) {
+            $recaptchaResponse = $app['recaptcha']->bind($app['request']);
+            if ($recaptchaResponse->isValid() && $form->isValid()) {
                 $data = $form->getData();
 
                 $message = \Swift_Message::newInstance('Nachricht von der Homepage')
@@ -161,7 +162,8 @@ $app->match(
                 'age' => $birthDate->diff(new DateTime('now'))->y,
                 'skills' => $skills,
                 'form' => $form->createView(),
-                'recaptcha' => $app['recaptcha'],
+                'recaptcha' => $recaptcha,
+                'recaptchaResponse' => $recaptchaResponse,
         ));
     }
 )
