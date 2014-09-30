@@ -1,2 +1,5 @@
 vendor/
 node_modules/
+src/config/parameters.yml
+ansible/inventories/*
+ansible/inventories/group_vars/*

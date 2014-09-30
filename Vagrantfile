@@ -20,12 +20,14 @@ Vagrant.configure("2") do |config|
     config.vm.provider :virtualbox do |v|
         v.name = "bicpi-homepage"
         v.customize ["modifyvm", :id, "--memory", 512]
-    end
+     end
 
     config.vm.box = "ubuntu/trusty64"
     
     config.vm.network :private_network, ip: "192.168.33.99"
+    config.vm.hostname = "homepage.vb"
     config.ssh.forward_agent = true
+
 
     #############################################################
     # Ansible provisioning (you need to have ansible installed)
@@ -44,4 +46,6 @@ Vagrant.configure("2") do |config|
 
     
     config.vm.synced_folder "./", "/var/www", type: "nfs"
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true
 end

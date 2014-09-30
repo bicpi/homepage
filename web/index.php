@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
+use Symfony\Component\Yaml\Yaml;
 
 function shuffle_assoc(&$array) {
     $keys = array_keys($array);
@@ -16,9 +17,9 @@ function shuffle_assoc(&$array) {
 }
 
 $app = new Silex\Application();
-if (0 === strpos($_SERVER['REMOTE_ADDR'], 'REMOTE_ADDR')) {
-    $app['debug'] = true;
-}
+$app['debug'] = $parameters['debug'];
+
+$parameters = Yaml::parse(__DIR__.'/../src/config/parameters.yml');
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
@@ -29,12 +30,12 @@ $app->register(
 );
 $app->register(new Silex\Provider\SwiftmailerServiceProvider(), array(
     'swiftmailer.options' => array(
-        'host' => '***REMOVED***',
-        'port' => '25',
-        'username' => '***REMOVED***',
-        'password' => '***REMOVED***',
-        'encryption' => 'tls',
-        'auth_mode' => null
+        'host' => $parameters['mailer_host'],
+        'port' => $parameters['mailer_port'],
+        'username' => $parameters['mailer_username'],
+        'password' => $parameters['mailer_password'],
+        'encryption' => $parameters['mailer_encryption'],
+        'auth_mode' => $parameters['mailer_auth_mode'],
     )
 ));
 $app->register(new Silex\Provider\SessionServiceProvider());

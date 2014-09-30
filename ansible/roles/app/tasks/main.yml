@@ -3,3 +3,6 @@
     - name: Run Composer
       sudo: false
       shell: /usr/local/bin/composer install chdir={{ project_root }}
+    - name: Copy parameters.yml file
+      sudo: false
+      template: src=parameters.tpl dest={{project_root}}/src/config/parameters.yml mode=644
