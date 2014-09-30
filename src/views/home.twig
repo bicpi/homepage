@@ -205,6 +205,12 @@
             <h2>Kontakt</h2>
             <div class="row-fluid">
                 <div class="span6">
+                    <script type="text/javascript">
+                    var RecaptchaOptions = {
+                        lang : 'de',
+                        theme : 'clean'
+                    };
+                    </script>
                     <form action="/#contact" method="post" class="form">
                         <p>Senden Sie mir eine Nachricht oder einen Tweet.</p>
                         {{ form_errors(form) }}
@@ -221,17 +227,18 @@
                             {{ form_widget(form.message, { attr: { class: 'input-block-level', placeholder: 'Ihre Nachricht ...', cols: '76', rows: '8' } }) }}
                         </div>
                         <div class="control-group">
-                            <script type="text/javascript">
-                                var RecaptchaOptions = {
-                                    lang : 'de',
-                                    theme : 'clean'
-                                };
-                            </script>
+                            {% if recaptchaHasError %}
+                                <ul class="unstyled">
+                                    <li class="text-error">
+                                        <span class="label label-important">Bitte gib die korrekten Zeichen ein</span>
+                                    </li>
+                                </ul>
+                            {% endif %}
                             <script type="text/javascript"
-                                    src="http://www.google.com/recaptcha/api/challenge?k={{ recaptcha.publicKey }}{% if recaptchaResponse and not recaptchaResponse.valid %}&amp;error={{ recaptchaResponse.error }}{% endif %}">
+                                    src="http://www.google.com/recaptcha/api/challenge?k={{ recaptchaPubKey }}">
                             </script>
                             <noscript>
-                                <iframe src="http://www.google.com/recaptcha/api/noscript?k={{ recaptcha.publicKey }}{% if recaptchaResponse and not recaptchaResponse.valid %}&amp;error={{ recaptchaResponse.error }}{% endif %}"
+                                <iframe src="http://www.google.com/recaptcha/api/noscript?k={{ recaptchaPubKey }}"
                                         height="300" width="500" frameborder="0"></iframe><br>
                                 <textarea name="recaptcha_challenge_field" rows="3" cols="40">
                                 </textarea>

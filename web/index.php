@@ -6,8 +6,6 @@ use Symfony\Component\Yaml\Yaml;
 use Neutron\ReCaptcha\ReCaptcha;
 use Neutron\ReCaptcha\ReCaptchaServiceProvider;
 
-$parameters = Yaml::parse(__DIR__.'/../src/config/parameters.yml');
-
 function shuffle_assoc(&$array) {
     $keys = array_keys($array);
 
@@ -23,7 +21,8 @@ function shuffle_assoc(&$array) {
 }
 
 $app = new Silex\Application();
-$app['debug'] = $parameters['debug'];
+$app['parameters'] = Yaml::parse(__DIR__.'/../src/config/parameters.yml');
+$app['debug'] = $app['parameters']['debug'];
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
@@ -34,12 +33,12 @@ $app->register(
 );
 $app->register(new Silex\Provider\SwiftmailerServiceProvider(), array(
     'swiftmailer.options' => array(
-        'host' => $parameters['mailer_host'],
-        'port' => $parameters['mailer_port'],
-        'username' => $parameters['mailer_username'],
-        'password' => $parameters['mailer_password'],
-        'encryption' => $parameters['mailer_encryption'],
-        'auth_mode' => $parameters['mailer_auth_mode'],
+        'host' => $app['parameters']['mailer_host'],
+        'port' => $app['parameters']['mailer_port'],
+        'username' => $app['parameters']['mailer_username'],
+        'password' => $app['parameters']['mailer_password'],
+        'encryption' => $app['parameters']['mailer_encryption'],
+        'auth_mode' => $app['parameters']['mailer_auth_mode'],
     )
 ));
 $app->register(new Silex\Provider\SessionServiceProvider());
@@ -52,8 +51,8 @@ $app->register(
 );
 $app->register(new Silex\Provider\FormServiceProvider());
 $app->register(new ReCaptchaServiceProvider(), array(
-    'recaptcha.public-key'  => $parameters['recaptcha_public_key'],
-    'recaptcha.private-key' => $parameters['recaptcha_private_key'],
+    'recaptcha.public-key'  => $app['parameters']['recaptcha_public_key'],
+    'recaptcha.private-key' => $app['parameters']['recaptcha_private_key'],
 ));
 
 $app->before(
@@ -112,12 +111,11 @@ $app->match(
             )
             ->getForm();
 
-        $recaptcha = $app['recaptcha'];
-        $recaptchaResponse = null;
+        $recaptchaHasError = false;
         if ('POST' == $request->getMethod()) {
+            $recaptchaHasError = !$app['recaptcha']->bind($app['request'])->isValid();
             $form->bind($request);
-            $recaptchaResponse = $app['recaptcha']->bind($app['request']);
-            if ($recaptchaResponse->isValid() && $form->isValid()) {
+            if (!$recaptchaHasError && $form->isValid()) {
                 $data = $form->getData();
 
                 $message = \Swift_Message::newInstance('Nachricht von der Homepage')
@@ -162,8 +160,8 @@ $app->match(
                 'age' => $birthDate->diff(new DateTime('now'))->y,
                 'skills' => $skills,
                 'form' => $form->createView(),
-                'recaptcha' => $recaptcha,
-                'recaptchaResponse' => $recaptchaResponse,
+                'recaptchaPubKey' => $app['parameters']['recaptcha_public_key'],
+                'recaptchaHasError' => $recaptchaHasError,
         ));
     }
 )
