@@ -78,10 +78,10 @@ $app->match(
                 'text',
                 array(
                     'constraints' => array(
-                        new Symfony\Component\Validator\Constraints\NotBlank(array('message' => 'Bitte gib Deinen Namen ein')),
+                        new Symfony\Component\Validator\Constraints\NotBlank(array('message' => 'Bitte geben Sie ihren Namen ein')),
                         new Symfony\Component\Validator\Constraints\Length(array(
                             'min' => 2,
-                            'minMessage' => 'Bitte gib mindestens {{ limit }} Zeichen ein'
+                            'minMessage' => 'Bitte geben Sie mindestens {{ limit }} Zeichen ein'
                         )),
                     )
                 )
@@ -91,8 +91,8 @@ $app->match(
                 'email',
                 array(
                     'constraints' => array(
-                        new Symfony\Component\Validator\Constraints\NotBlank(array('message' => 'Bitte gib Deine E-Mail-Adresse ein')),
-                        new Symfony\Component\Validator\Constraints\Email(array('message' => 'Bitte gib eine gültige E-Mail-Adresse ein')),
+                        new Symfony\Component\Validator\Constraints\NotBlank(array('message' => 'Bitte geben Sie eine E-Mail-Adresse ein')),
+                        new Symfony\Component\Validator\Constraints\Email(array('message' => 'Bitte geben Sie eine gültige E-Mail-Adresse ein')),
                     )
                 )
             )
@@ -101,10 +101,10 @@ $app->match(
                 'textarea',
                 array(
                     'constraints' => array(
-                        new Symfony\Component\Validator\Constraints\NotBlank(array('message' => 'Bitte gib eine Nachricht ein')),
+                        new Symfony\Component\Validator\Constraints\NotBlank(array('message' => 'Bitte geben Sie eine Nachricht ein')),
                         new Symfony\Component\Validator\Constraints\Length(array(
                             'min' => 10,
-                            'minMessage' => 'Bitte gib mindestens {{ limit }} Zeichen ein'
+                            'minMessage' => 'Bitte geben Sie mindestens {{ limit }} Zeichen ein'
                         ))
                     )
                 )
@@ -135,7 +135,7 @@ $app->match(
                 $app['session']->getFlashBag()->add(
                     'success',
                     sprintf(
-                        '<b>%s</b>, vielen Dank für Deine Nachricht.',
+                        '<b>%s</b>, vielen Dank für ihre Nachricht.',
                         $app->escape($data['name'])
                     )
                 );
