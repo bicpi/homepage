@@ -1,6 +1,10 @@
 <?php
+
 require_once __DIR__ . '/../vendor/autoload.php';
+
 use Symfony\Component\Yaml\Yaml;
+
+$parameters = Yaml::parse(__DIR__.'/../src/config/parameters.yml');
 
 function shuffle_assoc(&$array) {
     $keys = array_keys($array);
@@ -18,8 +22,6 @@ function shuffle_assoc(&$array) {
 
 $app = new Silex\Application();
 $app['debug'] = $parameters['debug'];
-
-$parameters = Yaml::parse(__DIR__.'/../src/config/parameters.yml');
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
