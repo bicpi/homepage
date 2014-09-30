@@ -3,6 +3,8 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Yaml\Yaml;
+use Neutron\ReCaptcha\ReCaptcha;
+use Neutron\ReCaptcha\ReCaptchaServiceProvider;
 
 $parameters = Yaml::parse(__DIR__.'/../src/config/parameters.yml');
 
@@ -49,6 +51,10 @@ $app->register(
     )
 );
 $app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new ReCaptchaServiceProvider(), array(
+    'recaptcha.public-key'  => $parameters['recaptcha_public_key'],
+    'recaptcha.private-key' => $parameters['recaptcha_private_key'],
+));
 
 $app->before(
     function () use ($app) {
@@ -107,9 +113,10 @@ $app->match(
             ->getForm();
 
         if ('POST' == $request->getMethod()) {
-            $form->bind($request);
+                ;
 
-            if ($form->isValid()) {
+            $form->bind($request);
+            if ($app['recaptcha']->bind($app['request'])->isValid() && $form->isValid()) {
                 $data = $form->getData();
 
                 $message = \Swift_Message::newInstance('Nachricht von der Homepage')
@@ -154,6 +161,7 @@ $app->match(
                 'age' => $birthDate->diff(new DateTime('now'))->y,
                 'skills' => $skills,
                 'form' => $form->createView(),
+                'recaptcha' => $app['recaptcha'],
         ));
     }
 )

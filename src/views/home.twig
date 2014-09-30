@@ -221,6 +221,35 @@
                             {{ form_widget(form.message, { attr: { class: 'input-block-level', placeholder: 'Ihre Nachricht ...', cols: '76', rows: '8' } }) }}
                         </div>
                         <div class="control-group">
+                            <script type="text/javascript">
+                                var RecaptchaOptions = {
+                                   theme : 'clean'
+                                };
+                            </script>
+                            <div id="recaptcha_widget" style="display:none">
+                                <div id="recaptcha_image"></div>
+                                <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect please try again</div>
+
+                                <span class="recaptcha_only_if_image">Enter the words above:</span>
+                                <span class="recaptcha_only_if_audio">Enter the numbers you hear:</span>
+
+                                <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
+
+                                <div><a href="javascript:Recaptcha.reload()">Get another CAPTCHA</a></div>
+                                <div class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')">Get an audio CAPTCHA</a></div>
+                                <div class="recaptcha_only_if_audio"><a href="javascript:Recaptcha.switch_type('image')">Get an image CAPTCHA</a></div>
+
+                                <div><a href="javascript:Recaptcha.showhelp()">Help</a></div>
+                            </div>
+
+                            <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k={{ recaptcha.publicKey }}"></script>
+                            <noscript>
+                                <iframe src="http://www.google.com/recaptcha/api/noscript?k={{ recaptcha.publicKey }}" height="300" width="500" frameborder="0"></iframe><br>
+                                <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+                                <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+                            </noscript>
+                        </div>
+                        <div class="control-group">
                             {{ form_rest(form) }}
                             <button type="submit" class="btn btn-primary">Abschicken</button>
                         </div>

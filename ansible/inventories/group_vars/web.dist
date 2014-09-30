@@ -1,7 +1,11 @@
----
-    mailer_host: localhost
-    mailer_port: 25
-    mailer_username: ''
-    mailer_password: ''
-    mailer_encryption: tls
-    mailer_auth_mode: ~
+debug: false
+
+mailer_host: localhost
+mailer_port: 25
+mailer_username: ~
+mailer_password: ~
+mailer_encryption: tls
+mailer_auth_mode: ~
+
+recaptcha_public_key: ~
+recaptcha_private_key: ~
