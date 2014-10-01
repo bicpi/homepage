@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Yaml\Yaml;
+use Gregwar\Captcha\CaptchaBuilder;
 
 function shuffle_assoc(&$array) {
     $keys = array_keys($array);
@@ -21,6 +22,10 @@ function shuffle_assoc(&$array) {
 $app = new Silex\Application();
 $app['parameters'] = Yaml::parse(__DIR__.'/../src/config/parameters.yml');
 $app['debug'] = $app['parameters']['debug'];
+if ($app['debug']) {
+    ini_set('display_errors', true);
+    error_reporting(-1);
+}
 
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
@@ -48,6 +53,9 @@ $app->register(
     )
 );
 $app->register(new Silex\Provider\FormServiceProvider());
+$app['captcha'] = function () {
+    return new CaptchaBuilder();
+};
 
 $app->before(
     function () use ($app) {
@@ -103,6 +111,18 @@ $app->match(
                     )
                 )
             )
+            ->add(
+                'captcha',
+                'text',
+                array(
+                    'constraints' => array(
+                        new Symfony\Component\Validator\Constraints\EqualTo(array(
+                            'value' => $app['session']->get('captcha', ''),
+                            'message' => 'Die Zeichen haben nicht übereingestimmt, bitte versuchen Sie es erneut'
+                        )),
+                    )
+                )
+            )
             ->getForm();
 
         if ('POST' == $request->getMethod()) {
@@ -147,11 +167,14 @@ $app->match(
         shuffle_assoc($skills);
 
         $birthDate = new \DateTime('1979-02-06');
+        $captcha = $app['captcha']->build();
+        $app['session']->set('captcha', $captcha->getPhrase());
 
         return $app['twig']->render('home.twig', array(
                 'age' => $birthDate->diff(new DateTime('now'))->y,
                 'skills' => $skills,
                 'form' => $form->createView(),
+                'captcha' => $captcha,
         ));
     }
 )

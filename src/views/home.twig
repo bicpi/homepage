@@ -221,6 +221,11 @@
                             {{ form_widget(form.message, { attr: { class: 'input-block-level', placeholder: 'Ihre Nachricht ...', cols: '76', rows: '8' } }) }}
                         </div>
                         <div class="control-group">
+                            <p><img src="{{ captcha.inline }}" /></p>
+                            {{ form_errors(form.captcha) }}
+                            {{ form_widget(form.captcha, { value: '', attr: { class: 'input-block-level', placeholder: 'Bitte geben Sie die Zeichen vom Bild ein ...' } }) }}
+                        </div>
+                        <div class="control-group">
                             {{ form_rest(form) }}
                             <button type="submit" class="btn btn-primary">Abschicken</button>
                         </div>
