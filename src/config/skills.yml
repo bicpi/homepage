@@ -21,6 +21,7 @@
   - Twig
   - Amazon Web Services
   - SQL
+  - "*js"
 
 190:
   - Assetic
@@ -78,6 +79,10 @@
   - Responsive
   - Heroku
   - Mac
+  - Docker
+  - Beanstalkd
+  - SVG
+  - Ionic
 
 130:
   - DigitalOcean
@@ -99,9 +104,11 @@
   - phpMyAdmin
   - Navicat
   - HeidSQL
+  - Supervisor
   - Notepad++
   - Titanium
-  - PhoneGap
+  - PhoneGap/Cordova
+  - ngCordove
   - Ansible
 
 120:
@@ -115,7 +122,7 @@
   - Smarty
   - Less
   - CoffeeScript
-  - Phhotoshop
+  - Photoshop
   - Hardware
   - ExtJS
   - Android
