@@ -15,4 +15,5 @@
     - php5-fpm
     - composer
     - phpcommon
+    - node
     - app

@@ -1,0 +1,13 @@
+---
+  - name: Install Node.JS/NPM
+    sudo: yes
+    apt: pkg=npm state=latest
+  - name: Symfony nodejs Binary
+    sudo: yes
+    file: src=/usr/bin/nodejs dest=/usr/bin/node state=link
+  - name: Install NPM Modules
+    sudo: yes
+    npm: name={{ item }} state=latest global=yes
+    with_items:
+      - bower
+      - gulp

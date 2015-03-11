@@ -14,23 +14,23 @@ use Assetic\Filter\UglifyJsFilter;
 
 $less = new LessFilter(trim(`which node`), array(__DIR__.'/node_modules'));
 $sass = new SassFilter();
-$uglifyCss = new UglifyCssFilter(__DIR__.'/node_modules/.bin/uglifycss');
+$uglifyCss = new UglifyCssFilter(__DIR__.'/node_modules/.bin/uglifycss', '/usr/bin/node');
 
 $css = new AssetCollection(array(
-    new FileAsset('src/assets/css/bootstrap.less', array($less)),
-    new HttpAsset('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'),
-    new FileAsset('src/assets/css/styles.scss', array($sass)),
-),
+        new FileAsset('src/assets/css/bootstrap.less', array($less)),
+        new HttpAsset('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'),
+        new FileAsset('src/assets/css/styles.scss', array($sass)),
+    ),
     array($uglifyCss)
 );
 file_put_contents('web/all.css', $css->dump());
 
 $uglifyJs = new UglifyJsFilter(__DIR__.'/node_modules/.bin/uglifyjs2');
 $js = new AssetCollection(array(
-    new HttpAsset('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'),
-    new FileAsset('src/assets/js/bootstrap.min.js'),
-    new FileAsset('src/assets/js/main.js'),
-),
+        new HttpAsset('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'),
+        new FileAsset('src/assets/js/bootstrap.min.js'),
+        new FileAsset('src/assets/js/main.js'),
+    ),
     array($uglifyJs)
 );
 file_put_contents('web/all.js', $js->dump());

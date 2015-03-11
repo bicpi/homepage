@@ -83,6 +83,7 @@
   - Beanstalkd
   - SVG
   - Ionic
+  - Apple
 
 130:
   - DigitalOcean
@@ -110,11 +111,11 @@
   - PhoneGap/Cordova
   - ngCordova
   - Ansible
+  - nginx
 
 120:
   - NoSQL
   - Postfix
-  - Apple
   - Netbeans
   - Flash
   - Flex
@@ -133,7 +134,6 @@
 
 110:
   - MongoDB
-  - nginx
   - Java
   - CQ5
   - WordPress

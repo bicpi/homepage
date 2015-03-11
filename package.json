@@ -1,9 +1,9 @@
 {
-    "name": "bicpi-homepage",
-    "description": "The bicpi homepage",
-    "dependencies": {
-        "uglify-js2": "*",
-        "uglifycss": "*",
-        "less": "*"
-    }
+  "name": "bicpi-homepage",
+  "description": "The bicpi homepage",
+  "dependencies": {
+    "uglify-js2": "*",
+    "uglifycss": "*",
+    "less": "<2.0.0"
+  }
 }
