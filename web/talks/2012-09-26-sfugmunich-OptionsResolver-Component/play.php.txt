@@ -1,0 +1,44 @@
+<?php
+
+require 'vendor/autoload.php';
+
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\Options;
+
+$resolver = new OptionsResolver();
+$resolver
+    ->setDefaults(array(
+        'first_name' => 'Max',
+        'last_name' => 'Mustermann',
+        'age' => function (Options $options, $previousValue) {
+            if (isset($options['birth_date'])) {
+                $ts = strtotime($options['birth_date']);
+                return date('Y')-date('Y', $ts);
+            }
+            return '???';
+        }
+    ))
+    ->setOptional(array(
+        'gender',
+        'birth_date'
+    ))
+    ->setRequired(array(
+        'email'
+    ))
+;
+
+$options = array(
+    'gender' => 'male',
+    'email' => 'p.rieber@onemedia.de',
+    #'birth_date' => '1979-02-06'
+    'age' => '43'
+);
+
+try {
+    $options = $resolver->resolve($options);
+    var_dump($options);
+} catch (\Exception $e) {
+    echo $e->getMessage()."\n";
+}
+
+

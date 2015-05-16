@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
+		<title>Das Canvas-Element</title>
+		<style>
+			body { text-align:left; font-size:90%; font-family:Verdana, Geneva, Arial, Helvetica, sans-serif; margin:0}
+			canvas { border: 1px solid black; } /* Das Canvas-Element kann wie jedes andere HTML-Element mit CSS gestaltet werden */
+		</style>
+	<script src="canvas-3d-Dateien/excanvas.js"></script><script>
+
+
+// Die Canvas-Funktion beim Laden der Seite aufrufen
+if(window.addEventListener){
+	window.addEventListener('load', drawCanvas, false);
+}
+else if(window.attachEvent){
+	window.attachEvent('onload', drawCanvas);
+}
+
+// Grad zu Radiant umrechnen
+function toRad(x){
+	return (x * Math.PI)/180;
+}
+
+// Startwerte für die Rotation festlegen
+var x, y, z, o;
+var xrot = 1;
+var xdeg = 0;
+var yrot = -0.5;
+var ydeg = 0;
+var zrot = -0.25;
+var zdeg = 0;
+
+// Das Ändern der Rotationswerte übernimmt diese Funktion
+function changevals(){
+	xrot = parseFloat(document.getElementById('x').value);
+	yrot = parseFloat(document.getElementById('y').value);
+	zrot = parseFloat(document.getElementById('z').value);
+}
+
+// Die Animation zeichnen
+function drawCanvas(){
+	var canvas = document.getElementById('canvas');
+	if(canvas.getContext){
+		o = [canvas.height/2, canvas.width/2, 0];
+		context = canvas.getContext('2d');
+		points = [];
+		points[0] = [-50, 50, 50, 1, 2, 4];   // A
+		points[1] = [50, 50, 50, 0, 3, 5];    // B
+		points[2] = [-50, -50, 50, 0, 3, 6];  // C
+		points[3] = [50, -50, 50, 1, 2, 7];   // D
+		points[4] = [-50, 50, -50, 0, 5, 6];  // E
+		points[5] = [50, 50, -50, 1, 4, 7];   // F
+		points[6] = [-50, -50, -50, 2, 4, 7]; // G
+		points[7] = [50, -50, -50, 5, 6, 3];  // H
+		animate();
+	}
+}
+
+//Animieren
+function animate(){
+	setInterval(function(){
+		context.clearRect(0, 0, 250, 250);
+		// Koordinaten-Puffer
+		var pos = [];
+		for(var i=0; i<points.length; i++){
+			var vx = points[i][0];
+			var vy = points[i][1];
+			var vz = points[i][2];
+			// Rotation auf der X-Achse
+			if(xrot != 0){
+				y = vy * Math.cos(toRad(xdeg)) - vz * Math.sin(toRad(xdeg));
+				z = vy * Math.sin(toRad(xdeg)) + vz * Math.cos(toRad(xdeg));
+				vy = y; vz = z;
+			}
+			// Rotation auf der Y-Achse
+			if(yrot != 0){
+				x = vz * Math.sin(toRad(ydeg)) + vx * Math.cos(toRad(ydeg));
+				z = vz * Math.cos(toRad(ydeg)) - vx * Math.sin(toRad(ydeg));
+				vx = x; vz = z;
+			}
+			// Rotation auf der Z-Achse
+			if(zrot != 0){
+				x = vx * Math.cos(toRad(zdeg)) - vy * Math.sin(toRad(zdeg));
+				y = vx * Math.sin(toRad(zdeg)) + vy * Math.cos(toRad(zdeg));
+				vx = x; vy = y;
+			}
+			// Rotierte Werte im Puffer speichern
+			var ox = Math.round(o[0] + vx + (vz/-4));
+			var oy = Math.round(o[1] + vy - (vz/-4));
+			pos[i] = [ox, oy];
+		}
+		// Ausgabe
+		for(var i=0; i<pos.length; i++){
+			// Pfad 1
+			context.beginPath();
+			context.moveTo(pos[i][0], pos[i][1]);
+			context.lineTo(pos[points[i][3]][0], pos[points[i][3]][1]);
+			// Pfad 2
+			context.moveTo(pos[i][0], pos[i][1]);
+			context.lineTo(pos[points[i][4]][0], pos[points[i][4]][1]);
+			// Pfad 3
+			context.moveTo(pos[i][0], pos[i][1]);
+			context.lineTo(pos[points[i][5]][0], pos[points[i][5]][1]);
+			// Pfad füllen + Punkte
+			context.stroke();
+			context.fillRect(pos[i][0]-2, pos[i][1]-2, 4, 4);
+		}
+		// Werte für das nächste Frame berechnen
+		xdeg = xdeg + xrot;
+		if(xdeg == 360) { xdeg = 0; }
+		ydeg = ydeg + yrot;
+		if(ydeg == 360) { ydeg = 0; }
+		zdeg = zdeg + zrot;
+		if(zdeg == 360) { zdeg = 0; }
+	}, 25);
+}
+
+
+	</script></head>
+
+
+<!--
+	Dieses Script (geschrieben von Google) aktiviert Canvas in Internet Explorer 6, 7 und 8
+	http://code.google.com/p/explorercanvas/
+-->
+
+
+
+<!--
+	Dieses Script übernimmt die Animation
+-->
+
+
+
+	<body>
+<!--
+
+<h1>Eine einfache Anmination mit dem Canvas-Element</h1>
+<p>
+	Das Canvas-Element ermöglicht das Zeichnen beliebiger Bitmaps im 
+Browser. Damit lassen sich Animationen, Effekte und Interfaces, für die 
+man früher Flash genommen
+	hätte, einfach mit HTML und JavaScript umsetzen. Das Canvas-Element 
+selbst ist ein natives Browser-Objekt, das man mit CSS stylen kann und 
+dessen Inhalt man mit
+	Rechtsklick → speichern unter wie ein normales Bild herunterladen kann.
+</p>
+<p>
+	Und das beste: Es funktioniert sogar im Internet Explorer 6.
+</p>
+-->
+
+<!-- Das Canvas-Element ist nicht mehr als eine einfache Malfläche, die wir mit Javascript zum Leben erwecken können -->
+<canvas id="canvas" width="250" height="250">
+	Dein Browser kann diese Grafik nicht darstellen :(
+</canvas>
+<!--
+
+<h2>Steuerung der Animation</h2>
+<p>
+	<label>X-Rotation: <input step="0.25" size="10" value="1" id="x" type="number"></label>
+	<label>Y-Rotation: <input step="0.25" size="10" value="-0.5" id="y" type="number"></label>
+	<label>Z-Rotation: <input step="0.25" value="-0.25" id="z" type="number"></label>-->
+	<!-- Diese Eingabefelder sind im Übrigen auch HTML5 - einfach mal in Opera anschauen :) -->
+	<!--<input onclick="changevals();" value="Go!" type="button">
+	<br>
+	<small><strong>Kommawerte mit Punkt als Trennzeichen eingeben.</strong></small>
+</p>
+
+
+<p>
+	<a href="http://html5-buch.de/demos">Zurück zu html5-buch.de</a>
+</p>
+-->
+
+	
+
+</body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Demo: File API</title>
+    <style>
+    body {
+        font-size: 25px;
+    }
+    #holder { border: 10px dashed #ccc; width: 525px; height: 350px; margin: 20px auto; font-size:11px;}
+    #holder.hover { border: 10px dashed #333; }
+    #status { display: none; margin: 20px auto; text-align: center; }
+    #meta { margin: 20px auto; text-align: center; }
+    </style>
+<body>
+
+<article>
+  <div id="data" style="display:none"></div>
+  <div id="img">
+      <div id="holder"></div>
+      <p id="meta"></p>
+      <p id="status">File API &amp; FileReader API not supported</p>
+  </div>
+</article>
+
+<script>
+var holder = document.getElementById('holder'),
+    state = document.getElementById('status'),
+    meta = document.getElementById('meta'),
+    img = document.getElementById('img');
+    data = document.getElementById('data');
+
+if (typeof window.FileReader === 'undefined') {
+  state.className = 'fail';
+} else {
+  state.className = 'success';
+  state.innerHTML = 'File API & FileReader available';
+}
+ 
+holder.ondragover = function () { this.className = 'hover'; return false; };
+holder.ondragend = function () { this.className = ''; return false; };
+holder.ondrop = function (e) {
+  this.className = '';
+  e.preventDefault();
+
+  var file = e.dataTransfer.files[0],
+      reader = new FileReader();
+
+  reader.onload = function (event) {
+    data.style.display='none';img.style.display='block';
+    holder.style.background = 'url(' + event.target.result + ') no-repeat center';
+    data.innerHTML = event.target.result;
+  };
+  reader.readAsDataURL(file);
+  meta.innerHTML = file.name+" | "+file.type+" | "+Math.round(file.size/1024)+" kB";// | <a href=\"#\" onclick=\"data.style.display='block';img.style.display='none'\">Data</a>";
+
+  return false;
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+.deck-container {
+
+    width: 90%;
+
+    h3 span {
+        font-size: 80%;
+        font-weight: normal;
+    }
+
+/*
+    h3, h4 {
+        margin-top: 45px;
+    }
+*/
+    #title-slide:before {
+        opacity: 1;
+        background-size: 50%;
+        background-position: center center;
+    }
+
+    > .slide:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: transparent url(images/html5-logo.svg) no-repeat 99% 1%;
+        background-size: 75px 75px;
+        opacity: 0.5;
+    }
+
+    .css, .js, .html, .key {
+        background: none repeat scroll 0 0 white;
+        border-radius: 7px;
+        /*bottom: 10px;*/
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        color: black;
+        font-family: 'Droid Sans';
+        font-size: 25px;
+        letter-spacing: 0;
+        line-height: 30px;
+        padding: 6px 10px 3px;
+        position: relative;
+        text-shadow: none;
+    }
+    .key {
+        font-family: "Lucida console",Monospace,Arial;
+    }
+    .html {
+        background: -moz-linear-gradient(left top , #EE8888, #FFEEEE) repeat scroll 0 0 transparent;
+    }
+    .css {
+        background: -moz-linear-gradient(left top , #FFFF44, #FFFFAA) repeat scroll 0 0 transparent;
+    }
+    .js {
+        background: -moz-linear-gradient(left top , #44FF44, #AAFFAA) repeat scroll 0 0 transparent;
+    }
+    span.css, span.js, span.html, span.key {
+        display: inline-block;
+    }
+
+    ul.no-style, ul.dot-style {
+        list-style-type: none;
+        margin: 0;
+    }
+
+    ul.dot-style li:before {
+        content: "\00B7  ";
+    }
+
+    #history {
+        li > span:first-child {
+            display: inline-block;
+            width: 85px;
+            font-weight: bold;
+            font-size: 175%;
+        }
+
+        li.sep {
+            border-top: 1px solid dotted;
+        }
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .slide p {
+        margin: 1em 0;
+    }
+
+    pre {
+        font-size: 90%;
+    }
+
+    i {
+        font-style: italic;
+    }
+    
+    b {
+        font-weight: bold;
+    }
+    
+    div.box {
+        border: 1px #999 dotted;
+        padding: 10px;
+        margin: 10px 0;
+
+        &:last-child {
+            border-style: solid;
+        }
+    }
+
+    .red {
+        color: red;
+    }
+    .green {
+        color: green;
+    }
+    .blue {
+        color: blue;
+    }
+    
+    li > ul {
+        margin-bottom: 0;
+    }
+}
+
+.csstransitions.csstransforms .deck-container:not(.deck-menu) .slide {
+    .deck-before, .deck-previous {
+        opacity: 1;
+    }
+}
+
