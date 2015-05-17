@@ -1,5 +1,9 @@
 vendor/
 node_modules/
-src/config/parameters.yml
+src/App/Resources/config/parameters.yml
+src/App/Resources/assets/rev-manifest.json
 ansible/inventories/*
 ansible/inventories/group_vars/*
+/web/css
+/web/js
+/web/font

@@ -1,0 +1,12 @@
+{
+  "name": "bicpi-homepage",
+  "version": "0.0.0",
+  "authors": [
+    "Philipp Rieber <p.rieber@gmail.com>"
+  ],
+  "dependencies": {
+    "jquery": "~1.9.1",
+    "font-awesome": "~3.2.1",
+    "bootstrap-sass": "v2.3.2.2"
+  }
+}

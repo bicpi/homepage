@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Yaml\Yaml;
 use Gregwar\Captcha\CaptchaBuilder;
+use App\Twig\AssetVersionExtension;
 
 function shuffle_assoc(&$array) {
     $keys = array_keys($array);
@@ -20,7 +21,7 @@ function shuffle_assoc(&$array) {
 }
 
 $app = new Silex\Application();
-$app['parameters'] = Yaml::parse(__DIR__.'/../src/config/parameters.yml');
+$app['parameters'] = Yaml::parse(__DIR__.'/../src/App/Resources/config/parameters.yml');
 $app['debug'] = $app['parameters']['debug'];
 if ($app['debug']) {
     ini_set('display_errors', true);
@@ -30,10 +31,15 @@ if ($app['debug']) {
 $app->register(
     new Silex\Provider\TwigServiceProvider(),
     array(
-        'twig.path' => dirname(__DIR__) . '/src/views',
+        'twig.path' => dirname(__DIR__) . '/src/App/Resources/views',
         'twig.form.templates' => array('form_div_layout.html.twig', 'form_layout.twig')
     )
 );
+$app['twig'] = $app->extend("twig", function (\Twig_Environment $twig, Silex\Application $app) {
+    $twig->addExtension(new AssetVersionExtension(dirname(__DIR__) . '/src/App'));
+
+    return $twig;
+});
 $app->register(new Silex\Provider\SwiftmailerServiceProvider(), array(
     'swiftmailer.options' => array(
         'host' => $app['parameters']['mailer_host'],
@@ -156,7 +162,7 @@ $app->match(
             }
         }
 
-        $skillsRaw = \Symfony\Component\Yaml\Yaml::parse(dirname(__DIR__).'/src/config/skills.yml');
+        $skillsRaw = \Symfony\Component\Yaml\Yaml::parse(dirname(__DIR__).'/src/App/Resources/config/skills.yml');
         $skills = array();
         foreach ($skillsRaw as $weight => $skillGroup) {
             foreach ($skillGroup as $skill) {
