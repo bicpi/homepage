@@ -86,7 +86,7 @@ gulp.task('styles', function() {
     var pipeline = new Pipeline();
 
     pipeline.add([
-        config.assetsDir+'/css/bootstrap.less',
+        config.assetsDir+'/css/bootstrap.scss',
         config.bowerDir+'/font-awesome/css/font-awesome.css',
         config.assetsDir+'/css/styles.scss'
     ], 'main.css');

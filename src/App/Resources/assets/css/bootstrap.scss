@@ -1,7 +1,3 @@
-/* import bootstrap components from bootstrap-dedicated folder */
-@import "../../../vendor/bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap";
-@import "../../../vendor/bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap-responsive";
-
 /* custom settings that deviate from Bootstrap's default values */
 $sansFontFamily: "Trebuchet MS", Tahoma, sans-serif, Arial;
 $baseLineHeight: 18px;
@@ -9,3 +5,9 @@ $navbarBackground: #E9F2F9;
 $navbarText: #407AB1;
 $navbarLinkColor: #407AB1;
 $heroUnitBackground: #BEDCF4;
+$iconSpritePath: "../img/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../img/glyphicons-halflings-white.png";
+
+/* import bootstrap components from bootstrap-dedicated folder */
+@import "bootstrap/bootstrap";
+@import "bootstrap/responsive";
