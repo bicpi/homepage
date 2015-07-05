@@ -4,12 +4,12 @@ var del = require('del');
 var Q = require('q');
 
 var config = {
-    assetsDir: 'src/App/Resources/assets',
+    assetsDir: 'src/Resources/assets',
     sassPattern: '**/*.scss',
     production: !!plugins.util.env.production,
     sourceMaps: !plugins.util.env.production,
     bowerDir: 'vendor/bower_components',
-    revManifestPath: 'src/App/Resources/assets/rev-manifest.json'
+    revManifestPath: 'src/Resources/assets/rev-manifest.json'
 };
 var app = {};
 
@@ -88,12 +88,9 @@ gulp.task('styles', function() {
     pipeline.add([
         config.assetsDir+'/css/bootstrap.scss',
         config.bowerDir+'/font-awesome/css/font-awesome.css',
+        config.assetsDir+'/css/flag-icon.css',
         config.assetsDir+'/css/styles.scss'
     ], 'main.css');
-
-//    pipeline.add([
-//        config.assetsDir+'/sass/dinosaur.scss'
-//    ], 'dinosaur.css');
 
     return pipeline.run(app.addStyle);
 });

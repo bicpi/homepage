@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="utf-8">
-    <title>Philipp Rieber | Full Stack Web-Entwickler | München</title>
+    <title>{{ 'head.title'|trans }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Homepage von Philipp Rieber | Full Stack Web-Entwickler aus München">
+    <meta name="description" content="{{ 'head.description'|trans }}">
     <meta name="author" content="Philipp Rieber">
-    <meta property="og:url" content="http://philipp-rieber.net"/>
-    <meta property="og:title" content="Philipp Rieber | Full Stack Web-Entwickler | München"/>
-    <meta property="og:description" content="Homepage von Philipp Rieber | Full Stack Web-Entwickler aus München"/>
-    <meta property="og:image" content="http://philipp-rieber.net/img/phil-small.jpg?v=2"/>
-    <meta property="fb:admins" content="775048191" />
-    <link rel="apple-touch-icon-precomposed" href="http://philipp-rieber.net/apple-touch-icon-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png" />
     <link type="text/plain" rel="author" href="/humans.txt">
     <link href="{{ 'css/main.css'|asset_version }}" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.ico" type="image/ico">
@@ -33,13 +28,16 @@
                 </a>
                 <div class="nav-collapse collapse navbar-responsive-collapse">
                     <ul class="nav">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#skills">Techniken</a></li>
-                        <li><a href="#about" style="white-space: nowrap">Über mich</a></li>
-                        <li><a href="#publications">Publikationen</a></li>
-                        <li><a href="#talks">Vorträge</a></li>
-                        <li><a href="#contact">Kontakt</a></li>
-                        <li><a href="http://blog.philipp-rieber.net" target="_blank"><i class="icon-external-link" style="vertical-align: middle;"></i> Blog</a></li>
+                        <li><a href="#home">{{ 'nav.home'|trans }}</a></li>
+                        <li><a href="#skills">{{ 'nav.skills'|trans }}</a></li>
+                        <li><a href="#about" style="white-space: nowrap">{{ 'nav.about'|trans }}</a></li>
+                        <li><a href="#publications">{{ 'nav.publications'|trans }}</a></li>
+                        <li><a href="#talks">{{ 'nav.talks'|trans }}</a></li>
+                        <li><a href="#contact">{{ 'nav.contact'|trans }}</a></li>
+                        <li><a href="http://blog.philipp-rieber.net"><i class="icon-external-link" style="vertical-align: middle;"></i> {{ 'nav.blog'|trans }}</a></li>
+                        <li>
+                            {% include 'language_switcher.twig' %}
+                        </li>
                     </ul>
                     <div class="pull-right">
                         {% include 'social_bar.twig' %}
@@ -62,64 +60,47 @@
         <section class="row-fluid">
             <div class="span12">
                 <div class="alert alert-info" role="alert" style="margin-bottom: 5px">
-                    <strong>Aktuell.</strong>
-                    Titelartikel zu <i>Alice und Faker</i> im <a href="https://entwickler.de/php-magazin/php-magazin-3-15-127563.html" target="_blank">PHPmagazin 3.15</a>
+                    <strong>{{ 'teaser.1.head'|trans }}</strong>
+                    {{ 'teaser.1.body'|trans|markdown_line|raw }}
                 </div>
                 <div class="alert alert-info" role="alert">
-                    <strong>Aktuell.</strong>
-                    Übersetzung: <a href="https://discoveringdocker.com/de/" target="_blank">Docker Entdecken</a> – erstes deutschsprachiges Buch zu <a href="https://www.docker.com/" target="_blank">Docker</a>
+                    <strong>{{ 'teaser.0.head'|trans }}</strong>
+                    {{ 'teaser.0.body'|trans|markdown_line|raw }}
                 </div>
             </div>
         </section>
         <section class="hero-unit" id="jumbotron">
-            <h1>Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.</h1>
+            <h1>{{ 'intro.h1'|trans|raw }}</h1>
             <div>
-                <h2 style="display:inline">Ich bin leidenschaftlicher Web-Entwickler.</h2>
-                <h3 style="display:inline">Meine Werkzeuge sind PHP, Symfony, Doctrine, HTML5, JavaScript, CSS3, jQuery, Twig, git, Ubuntu, Amazon Web Services, Datenbanken und viele mehr.</h3>
-                <h4 style="display:inline">Ich bin {{ age }} Jahre alt und lebe in München.</h4>
+                <h2>{{ 'intro.h2'|trans }}</h2>
+                <h3>{{ 'intro.h3'|trans }}</h3>
+                <h4>{{ 'intro.h4'|trans({'%age%': age}) }}</h4>
             </div>
             <div class="pull-right">
-                <a href="https://connect.sensiolabs.com/profile/bicpi" target="_blank" title="SensioLabs Certified Symfony Developer (Expert)"><img src="/img/certification-symfony.png" width="84" height="84" alt="SensioLabs Certified Symfony Developer (Expert)" /></a>
+                <a href="https://connect.sensiolabs.com/profile/bicpi" title="SensioLabs Certified Symfony Developer (Expert)"><img src="/img/certification-symfony.png" width="84" height="84" alt="SensioLabs Certified Symfony Developer (Expert)" /></a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND003438" target="_blank" title="Zend Certified PHP Engineer"><img src="/img/certification-php.jpg" width="86" height="80" alt="Zend Certified PHP Engineer" /></a>
+                <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND003438" title="Zend Certified PHP Engineer"><img src="/img/certification-php.jpg" width="86" height="80" alt="Zend Certified PHP Engineer" /></a>
             </div>
         </section>
         <section class="row-fluid">
             <div class="span4">
-                <h2>Internet</h2>
-                <p>Seit meiner ersten E-Mail 1999 bin ich im Internet zu Hause.
-                Von der Hardware-Bastelei über die ersten Schritte mit Linux
-                war ich spätestens mit dem Studium von selfHTML komplett vom
-                Web-Entwickeln infiziert. Mit HTML, CSS, PHP, JavaScript,
-                Datenbanken, Flash, CMS, OOP bis zu Frameworks, Servern, git,
-                AWS, Scrum, Cloud Services, Mobile u.v.m. habe ich eine Technik
-                nach der anderen gelernt.</p>
+                <h2>{{ 'opening.col1.head'|trans }}</h2>
+                <p>{{ 'opening.col1.body'|trans }}</p>
             </div>
             <div class="span4">
-                <h2>Web-Entwicklung</h2>
-                <p>Ich bin Full Stack Web-Entwickler &ndash; aber kein Web-Designer. Hauptsächlich
-                   entwickle ich komplett individualisierte Web-Applikationen und widme mich DevOps-Aufgaben.
-                   Daher bin nicht auf ein Gebiet festgelegt und fühle mich
-                   client- und serverseitig gleichermaßen wohl &ndash; genau so wie auf der Konsole,
-                   der Konzeption, im Scrum-Team oder beim Ausloten von Kundenwünschen.
+                <h2>{{ 'opening.col2.head'|trans }}</h2>
+                <p>{{ 'opening.col2.body'|trans }}</p>
             </div>
             <div class="span4">
-                <h2>Stationen</h2>
-                <p>Ich arbeite als Senior Software Engineer bei der
-                    <a href="http://www.sessiondigital.de/" target="_blank">Session Digital GmbH</a>/<a href="http://inviqa.com/" target="_blank">Inviqa</a>.
-                    Zuvor war ich bei der Evaluierung eines FinTech-StartUps im
-                    <a href="http://www.werk1muenchen.de/" target="_blank">WERK1</a> dabei und arbeitete
-                    sieben Jahre als Web-Entwickler, Teamleiter und stellvertretender Geschäftsführer
-                    bei der Onemedia GmbH. Gelegentlich berate und unterstütze ich nebenbei weitere Projekte.</p>
+                <h2>{{ 'opening.col3.head'|trans }}</h2>
+                {{ 'opening.col3.body'|trans|markdown|raw }}
             </div>
         </section>
-        {#<div style="margin-top: 20px" class="pull-right fb-like" data-href="http://philipp-rieber.net" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true" data-font="trebuchet ms"></div>#}
 
         <hr id="skills">
         <section>
-            <h2>Techniken</h2>
-            <p>Für die Entwicklung nutze ich viele verschiedene Konzepte, Techniken, Frameworks, Toolkits und
-                Bibliotheken &ndash; manche mehr, manche weniger.</p>
+            <h2>{{ 'nav.skills'|trans }}</h2>
+            <p>{{ 'skills.intro'|trans }}</p>
             <ul class="cloud inline well">
                 {% for skill, size in skills %}
                     <li style="font-size: {{ size }}%">{{ skill }}</li>
@@ -129,13 +110,11 @@
 
         <hr id="about">
         <section>
-            <h2>Über mich</h2>
-            <p>Neben der Web-Entwicklung schreibe und rede ich auch sehr gerne darüber oder unterstütze andere. Jede
-            freie Minute probiere ich neue Tools und Bibliotheken aus, lese Dokumentationen, Tutorials, IT-Nachrichten
-            oder sehe Video-Trainings. Ich möchte ständig neue Dinge lernen und mich verbessern.</p>
+            <h2>{{ 'nav.about'|trans }}</h2>
+            <p>{{ 'about.intro'|trans }}</p>
             <div class="row-fluid">
                 <div class="span12">
-                    <h3>Zertifizierungen</h3>
+                    <h3>{{ 'about.certifications'|trans }}</h3>
                 </div>
             </div>
             <div class="row-fluid">
@@ -143,83 +122,67 @@
                     <p>
                         <img src="/img/certification-symfony.png" width="84" height="84" alt="SensioLabs Certified Symfony Developer (Expert)" />
                         &nbsp;&nbsp;
-                        <a href="https://connect.sensiolabs.com/profile/bicpi" target="_blank" title="SensioLabs Certified Symfony Developer (Expert)"><b>SensioLabs Certified Symfony Developer (Expert)</b></a>
+                        <a href="https://connect.sensiolabs.com/profile/bicpi" title="SensioLabs Certified Symfony Developer (Expert)"><b>SensioLabs Certified Symfony Developer (Expert)</b></a>
                     </p>
                 </div>
                 <div class="span6">
                     <img src="/img/certification-php.jpg" width="86" height="80" alt="Zend Certified PHP Engineer" />
                     &nbsp;&nbsp;
-                    <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND003438" target="_blank" title="Zend Certified PHP Engineer"><b>Zend Certified PHP Engineer</b></a>
+                    <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND003438" title="Zend Certified PHP Engineer"><b>Zend Certified PHP Engineer</b></a>
                 </div>
             </div>
             <div class="row-fluid">
                 <div class="span4">
-                    <h3>Konferenzen</h3>
-                    <p>Sehr gerne besuche ich Konferenzen und Workshops für Web-Entwickler. So war ich etwa mehrfach auf der
-                        <a href="http://live.symfony.com" target="_blank">Symfony Live Konferenz</a>, dem
-                        <a href="http://www.symfonyday.com/de">Symfony Day</a> und diversen Roadshows, Präsentation oder
-                        Trainings von Adobe, Amazon und Microsoft.
-                    </p>
+                    <h3>{{ 'about.col1.head'|trans }}</h3>
+                    {{ 'about.col1.body'|trans|markdown|raw }}
                 </div>
                 <div class="span4">
-                    <h3>User Groups</h3>
-                    <p>In München bin ich Co-Organisator der
-                        <a href="http://www.meetup.com/sfugmunich/" target="_blank">Symfony User Group</a> und Dauergast der
-                        <a href="http://www.meetup.com/phpugmunich/" target="_blank">PHP User Group</a>.</p>
+                    <h3>{{ 'about.col2.head'|trans }}</h3>
+                    {{ 'about.col2.body'|trans|markdown|raw }}
                 </div>
                 <div class="span4">
-                    <h3>Contributions</h3>
-                    <p>
-                        Auf <a href="https://github.com/bicpi" target="_blank">GitHub</a> pflege ich kleine OpenSource
-                        Bibliotheken und Bundles - auch <a href="https://github.com/bicpi/homepage" target="_blank">diese Website</a>.
-                        Von Zeit zu Zeit erstelle ich Contributions für andere Projekte, am liebsten für die
-                        <a href="https://github.com/symfony/symfony-docs" target="_blank">Symfony-Dokumentation</a>.
-                        Ich beteilige mich gerne an Diskussionen auf <a href="https://github.com/bicpi" target="_blank">GitHub</a>,
-                        <a href="http://stackoverflow.com/users/1182743/philipp-rieber" target="_blank">StackOverflow</a> oder
-                        diversen <a href="https://disqus.com/home/user/bicpi" target="_blank">Blogs und Foren</a>.
-                    </p>
+                    <h3>{{ 'about.col3.head'|trans }}</h3>
+                    {{ 'about.col3.body'|trans|markdown|raw }}
                 </div>
             </div>
 
             <hr id="publications">
             <section>
-                <h2>Publikationen</h2>
-                <p>Von Zeit zu Zeit schreibe ich Artikel und Bücher zu Fachthemen oder übersetze aus
-                    dem Englischen. Im Arbeitsalltag wirke bei ich bei vielen Texten, Referenzen und
-                    Case Studies mit. Gelegentlich verfasse ich auch mal einen Blogbeitrag unter
-                    <a href="http://blog.philipp-rieber.net" target="_blank">blog.philipp-rieber.net</a>.
-                </p>
+                <h2>{{ 'nav.publications'|trans }}</h2>
+                <p>{{ 'publications.intro'|trans|markdown|raw }}</p>
                 <div class="well">
                     <div class="row-fluid">
                         <div class="span4 text-center">
-                            <h6>Alice und Faker</h6>
-                            <p><a href="https://entwickler.de/php-magazin/php-magazin-3-15-127563.html" target="_blank"><img src="/img/phpmagazin-3.15.jpg" width="130" height="184" alt="Cover PHPmagazin 3.15: Alice und Faker, März 2015" /></a></p>
-                            <p><small>März 2015, PHPmagazin 3.15<br>Titelartikel, 8 Seiten</small></p>
+                            <h6>{{ 'publications.items.aliceFaker.title'|trans }}</h6>
+                            <p><a href="https://entwickler.de/php-magazin/php-magazin-3-15-127563.html"><img src="/img/phpmagazin-3.15.jpg" width="130" height="184" alt="{{ 'publications.items.aliceFaker.alt'|trans }}" /></a></p>
+                            <p><small>{{ 'publications.items.aliceFaker.subtitle'|trans|raw }}</small></p>
                         </div>
                         <div class="span4 text-center">
-                            <h6>Docker Entdecken</h6>
-                            <p><a href="http://discoveringdocker.com/de" target="_blank"><img src="/img/discovering-docker.png" width="152" height="184" alt="Buchcover: Docker Entdecken" /></a></p>
-                            <p><small>März 2015, Übersetzung aus dem Englischen<br>e-Book von Geoffrey Bachelet</small></p>
+                            <h6>{{ 'publications.items.docker.title'|trans }}</h6>
+                            <p><a href="http://discoveringdocker.com/de"><img src="/img/discovering-docker.png" width="152" height="184" alt="{{ 'publications.items.docker.alt'|trans }}" /></a></p>
+                            <p><small>{{ 'publications.items.docker.subtitle'|trans|raw }}</small></p>
                         </div>
                         <div class="span4 text-center">
-                            &nbsp;
+                            <h6>{{ 'publications.items.ionic.title'|trans }}</h6>
+                            <p><a href="https://entwickler.de/php-magazin"><img src="/img/phpmagazin-5.15.jpg" width="130" height="183" alt="{{ 'publications.items.ionic.alt'|trans }}" /></a></p>
+                            <p><small>{{ 'publications.items.ionic.subtitle'|trans|raw }}</small></p>
                         </div>
                     </div>
                     <div class="row-fluid top-buffer">
                         <div class="span4 text-center">
-                            <h6>Dynamische Webseiten in der Praxis</h6>
-                            <p><a href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Eclipse/dp/3826616154" target="_blank"><img src="/img/cover_dyn_web_book_I_small.jpg" width="130" height="184" alt="Buchcover: Dynamische Webseiten in der Praxis, Auflage 1, 2006" /></a></p>
-                            <p><small>1. Auflage 2006, ISBN 978-3826616150</small></p>
+                            <h6>{{ 'publications.items.dynWeb1.title'|trans }}</h6>
+                            <p><a href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Eclipse/dp/3826616154"><img src="/img/cover_dyn_web_book_I_small.jpg" width="130" height="184" alt="{{ 'publications.items.dynWeb1.alt'|trans }}" /></a></p>
+                            <p><small>{{ 'publications.items.dynWeb1.subtitle'|trans|raw }}</small></p>
                         </div>
                         <div class="span4 text-center">
-                            <h6>Dynamische Webseiten in der Praxis</h6>
-                            <p><a href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Professional/dp/3826617827" target="_blank"><img src="/img/cover_dyn_web_book_II_small.gif" width="130" height="180" alt="Buchcover: Dynamische Webseiten in der Praxis, Auflage 2, 2009" /></a></p>
-                            <p><small>2. Auflage 2009, ISBN 978-3826617829<br />vollständig überarbeitet</small></p>
+                            <h6>{{ 'publications.items.cookbook.title'|trans }}</h6>
+                            <p><a href="http://www.amazon.de/PHP-MySQL-Kochbuch-L%C3%B6sungen-Practices/dp/3826616804"><img src="/img/cover_cookbook_small.jpg" width="130" height="181" alt="{{ 'publications.items.cookbook.alt'|trans }}" /></a></p>
+                            <p><small>{{ 'publications.items.cookbook.subtitle'|trans|raw }}</small></p>
                         </div>
                         <div class="span4 text-center">
-                            <h6>PHP5 und MySQL5 - Das Kochbuch</h6>
-                            <p><a href="http://www.amazon.de/PHP-MySQL-Kochbuch-L%C3%B6sungen-Practices/dp/3826616804" target="_blank"><img src="/img/cover_cookbook_small.jpg" width="130" height="181" alt="Buchcover: PHP5 und MySQL5 Kochbuch, 2007" /></a></p>
-                            </p><small>1. Auflage 2007, ISBN 978-3826616808</small></p>
+                            <h6>{{ 'publications.items.dynWeb2.title'|trans }}</h6>
+                            <p><a href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Professional/dp/3826617827"><img src="/img/cover_dyn_web_book_II_small.gif" width="130" height="180" alt="{{ 'publications.items.dynWeb2.alt'|trans }}" /></a></p>
+                            </p><small>{{ 'publications.items.dynWeb2.subtitle'|trans|raw }}</small></p>
                         </div>
                     </div>
                 </div>
@@ -228,50 +191,40 @@
 
         <hr id="talks">
         <section>
-            <h2>Vorträge</h2>
+            <h2>{{ 'nav.talks'|trans }}</h2>
             <ul>
-                <li>
-                    <a href="talks/2015-05-27-phpugmunich-Faker-and-Alice.pdf" target="_blank"><b>Customized Fixtures with Faker &amp; Alice</b></a>, <i>PHP User Group Munich, May 27th 2015</i>
-                </li>
-                <li>
-                    <a href="talks/2015-05-11-sfugmunich-Faker-and-Alice.pdf" target="_blank"><b>Customized Fixtures with Faker &amp; Alice</b></a>, <i>Symfony User Group Munich, May 11th 2015</i>
-                </li>
-                <li>
-                    <b>Symfony's OptionsResolver component</b>, <i>Symfony User Group Munich, September 26th 2012</i>
-                </li>
-                <li>
-                    <b>HTML5</b>, <i>Onemedia GmbH, 17. Januar 2012</i>
-                </li>
-                <li>
-                    <b>Projektplanung</b>, <i>Onemedia GmbH, 23. September 2009</i>
-                </li>
+                <li>{{ 'talks.items.4'|trans|markdown_line|raw }}</li></li>
+                <li>{{ 'talks.items.3'|trans|markdown_line|raw }}</li></li>
+                <li>{{ 'talks.items.2'|trans|markdown_line|raw }}</li></li>
+                <li>{{ 'talks.items.1'|trans|markdown_line|raw }}</li></li>
+                <li>{{ 'talks.items.0'|trans|markdown_line|raw }}</li></li>
             </ul>
         </section>
 
         <hr id="contact">
         <section>
-            <h2>Kontakt</h2>
+            <h2>{{ 'nav.contact'|trans }}</h2>
             <div class="row-fluid">
                 <div class="span6">
-                    <form action="/#contact" method="post" class="form">
-                        <p>Senden Sie mir eine Nachricht oder einen Tweet.</p>
+                    <form action="/#contact" method="post" class="form" novalidate="novalidate">
+                        <p>{{ 'contact.intro'|trans }}</p>
                         {{ form_errors(form) }}
                         <div class="control-group">
                             {{ form_errors(form.name) }}
-                            {{ form_widget(form.name, { attr: { class: 'input-block-level', placeholder: 'Ihr Name' } }) }}
+                            {{ form_widget(form.name, { attr: { class: 'input-block-level', placeholder: 'contact.placeholder.name'|trans } }) }}
                         </div>
                         <div class="control-group">
                             {{ form_errors(form.email) }}
-                            {{ form_widget(form.email, { attr: { class: 'input-block-level', placeholder: 'you@example.com' } }) }}
+                            {{ form_widget(form.email, { attr: { class: 'input-block-level', placeholder: 'contact.placeholder.email'|trans } }) }}
                         </div>
                         <div class="control-group">
                             {{ form_errors(form.message) }}
-                            {{ form_widget(form.message, { attr: { class: 'input-block-level', placeholder: 'Ihre Nachricht ...', cols: '76', rows: '8' } }) }}
+                            {{ form_widget(form.message, { attr: { class: 'input-block-level', placeholder: 'contact.placeholder.message'|trans, cols: '76', rows: '8' } }) }}
                         </div>
                         <div class="control-group">
                             <p><img src="{{ captcha.inline }}" /></p>
                             {{ form_errors(form.captcha) }}
-                            {{ form_widget(form.captcha, { value: '', attr: { class: 'input-block-level', placeholder: 'Bitte geben Sie die Zeichen vom Bild ein ...' } }) }}
+                            {{ form_widget(form.captcha, { value: '', attr: { class: 'input-block-level', placeholder: 'contact.placeholder.captcha'|trans } }) }}
                         </div>
                         <div class="control-group">
                             {{ form_rest(form) }}
@@ -291,10 +244,14 @@
 <footer>
     <div class="container">
         <address>
-            <strong>Philipp Rieber &ndash; <script type="text/javascript">ylgjjeeo="i69i6ei66i6fi40i70i68i69i6ci69i70i70i2di72i69i65i62i65i72i2ei6ei65i74";document.write(unescape(ylgjjeeo.replace(/i/g, "%")));</script></strong><br />
+
+            <strong>Philipp Rieber – <script type="text/javascript">ylgjjeeo="i68i65i6Ci6Ci6Fi40i70i68i69i6ci69i70i70i2di72i69i65i62i65i72i2ei6ei65i74";document.write(decodeURIComponent(ylgjjeeo.replace(/i/g, "%")));</script></strong><br />
             Zentnerstrasse 18, 80798 München<br>
             {% include 'social_bar.twig' %}
         </address>
+        <p>
+            {% include 'language_switcher.twig' %}
+        </p>
         {% set Y = 'now'|date('Y') %}
         <p>&copy; 2013{% if Y > 2013 %}-{{ Y }}{% endif %}</p>
     </div>

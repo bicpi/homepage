@@ -1,0 +1,139 @@
+head:
+    title: Philipp Rieber | Full Stack Webentwickler | München
+    description: Homepage von Philipp Rieber | Full Stack Webentwickler aus München
+
+nav:
+    home: Home
+    skills: Techniken
+    about: Über mich
+    publications: Veröffentlichungen
+    talks: Vorträge
+    contact: Kontakt
+    blog: Blog
+
+teaser:
+    - head: Aktuell.
+      body: Übersetzung: [Docker Entdecken](https://discoveringdocker.com/de/) – erstes deutschsprachiges Buch zu [Docker](https://www.docker.com/)
+    - head: Aktuell.
+      body: Artikel zum *Ionic Framework* im [PHPmagazin 5.15](https://entwickler.de/php-magazin)
+
+intro:
+    h1: Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.
+    h2: Ich bin leidenschaftlicher Webentwickler.
+    h3: Meine Werkzeuge sind PHP, Symfony, Doctrine, HTML5, JavaScript, CSS3, jQuery, Twig, Git, Ubuntu, Amazon Web Services, Datenbanken und viele mehr.
+    h4: Ich bin %age% Jahre alt und lebe in München.
+
+opening:
+    col1:
+        head: Internet
+        body: |
+            Seit meiner ersten E-Mail 1999 bin ich im Internet zu Hause.
+            Von der Hardware-Bastelei über die ersten Schritte mit Linux
+            war ich spätestens mit dem Studium von selfHTML komplett vom
+            Webentwickeln infiziert. Mit HTML, CSS, PHP, JavaScript,
+            Datenbanken, Flash, CMS, OOP bis zu Frameworks, Servern, Git,
+            AWS, Scrum, Cloud Services, Mobile u.v.m. habe ich eine Technik
+            nach der anderen gelernt.
+    col2:
+        head: Webentwicklung
+        body: |
+            Ich bin Full Stack Webentwickler – aber kein Webdesigner.
+            Hauptsächlich entwickle ich komplett individualisierte Web-Applikationen
+            und widme mich DevOps-Aufgaben. Daher bin ich nicht auf ein Gebiet
+            festgelegt und fühle mich client- und serverseitig gleichermaßen wohl
+            – genau so wie auf der Konsole, in der Konzeption, im Scrum-Team oder
+            beim Ausloten von Kundenwünschen.
+    col3:
+        head: Stationen
+        body: |
+            Ich arbeite als Senior Software Engineer bei der
+            [Session Digital GmbH](http://www.sessiondigital.de/)/[Inviqa](http://inviqa.com/).
+            Zuvor war ich bei der Evaluierung eines FinTech-StartUps im
+            [WERK1](http://www.werk1muenchen.de/) dabei und arbeitete sieben Jahre
+            als Webentwickler, Teamleiter und stellvertretender Geschäftsführer
+            bei der Onemedia GmbH. Gelegentlich berate und unterstütze ich nebenbei
+            weitere Projekte.
+
+skills:
+    intro: |
+        Für die Entwicklung nutze ich viele verschiedene Konzepte, Techniken, Frameworks,
+        Toolkits und Bibliotheken – manche mehr, manche weniger.
+about:
+    intro: |
+        Neben der Webentwicklung schreibe und rede ich auch sehr gerne darüber oder
+        unterstütze andere. Jede freie Minute probiere ich neue Tools und Bibliotheken
+        aus, lese Dokumentationen, Tutorials, IT-Nachrichten oder sehe Video-Trainings.
+        Ich möchte ständig neue Dinge lernen und mich verbessern.
+    certifications: Zertifizierungen
+    col1:
+        head: Konferenzen
+        body: |
+            Sehr gerne besuche ich Konferenzen und Workshops für Webentwickler. So war
+            ich etwa mehrfach auf der [Symfony Live Konferenz](http://live.symfony.com),
+            dem [Symfony Day](http://www.symfonyday.com/de) und diversen Roadshows,
+            Präsentation oder Trainings von Adobe, Amazon und Microsoft.
+    col2:
+        head: User Groups
+        body: |
+            In München bin ich Co-Organisator der
+            [Symfony User Group](http://www.meetup.com/sfugmunich/)
+            und Dauergast der [PHP User Group](http://www.meetup.com/phpugmunich/).
+            Gelegentlich halte ich auch selbst [Vorträge](#talks) auf diesen User Groups.
+    col3:
+        head: Contributions
+        body: |
+            Auf [GitHub](https://github.com/bicpi) pflege ich kleine
+            Open Source Bibliotheken und Bundles - ebenso wie [diese Homepage](https://github.com/bicpi/homepage).
+            Von Zeit zu Zeit erstelle ich Contributions für andere Projekte, am liebsten für die
+            [Symfony-Dokumentation](https://github.com/symfony/symfony-docs).
+            Ich beteilige mich gerne an Diskussionen auf [GitHub](https://github.com/bicpi),
+            [StackOverflow](http://stackoverflow.com/users/1182743/philipp-rieber)
+            oder diversen [Blogs und Foren](https://disqus.com/home/user/bicpi).
+
+publications:
+    intro: |
+        Von Zeit zu Zeit schreibe ich Artikel und Bücher zu Fachthemen oder übersetze aus
+        dem Englischen. Im Arbeitsalltag wirke bei ich bei vielen Texten, Referenzen und
+        Case Studies mit. Gelegentlich verfasse ich einen Blogbeitrag unter
+        [blog.philipp-rieber.net](http://blog.philipp-rieber.net).
+    items:
+        dynWeb1:
+            title: Dynamische Webseiten in der Praxis
+            alt: "Buchcover: Dynamische Webseiten in der Praxis, Auflage 1, 2006"
+            subtitle: 1. Auflage 2006, ISBN 978-3826616150
+        cookbook:
+            title: PHP5 und MySQL5 - Das Kochbuch
+            alt: "Buchcover: PHP5 und MySQL5 Kochbuch, 2007"
+            subtitle: 1. Auflage 2007, ISBN 978-3826616808
+        dynWeb2:
+            title: Dynamische Webseiten in der Praxis
+            alt: "Buchcover: Dynamische Webseiten in der Praxis, Auflage 2, 2009"
+            subtitle: 2. Auflage 2009, ISBN 978-3826617829<br>vollständig überarbeitet
+        aliceFaker:
+            title: Alice und Faker
+            alt: "Cover PHPmagazin 3.15: Alice und Faker, März 2015"
+            subtitle: März 2015, PHPmagazin 3.15<br>Titelartikel, 8 Seiten
+        docker:
+            title: Docker Entdecken
+            alt: "Buchcover: Docker Entdecken"
+            subtitle: März 2015, Übersetzung aus dem Englischen<br>e-Book von Geoffrey Bachelet
+        ionic:
+            title: Ionic – Hybrid-Apps mit dem JavaScript-Framework
+            alt: "Buchcover PHPmagazin 5.15: PouchDB!, March 2015"
+            subtitle: Juli 2015, PHPmagazin 5.15<br>7 Seiten
+
+talks:
+    items:
+        - "**Projektplanung**, Onemedia GmbH, *23.09.2009*"
+        - "**HTML5**, Onemedia GmbH, *17.01.2012*"
+        - "**Symfony's OptionsResolver component**, Symfony User Group München, *26.09.2012*"
+        - "**[Customized Fixtures with Faker & Alice](talks/2015-05-11-sfugmunich-Faker-and-Alice.pdf)**, Symfony User Group München, *11.05.2015*"
+        - "**[Customized Fixtures with Faker & Alice](talks/2015-05-27-phpugmunich-Faker-and-Alice.pdf)**, PHP User Group München, *27.05.2015*"
+
+contact:
+    intro: Senden Sie mir eine Nachricht oder einen Tweet.
+    placeholder:
+        name: Ihr Name
+        email: name@example.org
+        message: Ihre Nachricht ...
+        captcha: Bitte geben Sie die Zeichen vom Bild ein ...

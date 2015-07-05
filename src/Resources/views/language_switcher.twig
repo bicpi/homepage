@@ -1,0 +1,5 @@
+{% if 'en' == app.request.locale %}
+    <a href="{{ path('home_locale', {_locale: 'de'}) }}"><span class="flag-icon flag-icon-de flag-icon-squared"></span></a></li>
+{% else %}
+    <a href="{{ path('home') }}"><span class="flag-icon flag-icon-gb flag-icon-squared"></span></a>
+{% endif %}

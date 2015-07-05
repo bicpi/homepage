@@ -59,6 +59,7 @@
   - REST
   - Webservices
   - Twelve-Factor App
+  - Ionic
 
 150:
   - Vagrant
@@ -67,6 +68,10 @@
   - Bash Scripting
   - WAMP
   - Unit Tests
+  - Jekyll
+  - phpspec
+  - prophecy
+  - OAuth
 
 140:
   - phpunit
@@ -82,7 +87,6 @@
   - Docker
   - Beanstalkd
   - SVG
-  - Ionic
   - Apple
 
 130:
@@ -112,6 +116,8 @@
   - ngCordova
   - Ansible
   - nginx
+  - BDD
+  - TDD
 
 120:
   - NoSQL
@@ -146,16 +152,17 @@
   - SNS
   - VPN
   - iPhone
+  - DDD
 
 100:
   - Python
   - CQ5
-  - TDD
   - PSR
   - Typo3
   - dojo
   - Action Script
   - Zend Studio
+  - Hexagonal Architecture
 
 90:
   - Redis
