@@ -139,3 +139,16 @@ contact:
         email: you@example.org
         message: Your message ...
         captcha: Please enter the characters you see in the picture ...
+    validation:
+        name:
+            not_blank: Please enter your name
+            min: Please enter at least {{ limit }} characters
+        email:
+            not_blank: Please enter your email address
+            email: Please enter a valid email address
+        message:
+            not_blank: Please enter your message
+            min: Please enter at least {{ limit }} characters
+        captcha:
+            invalid: Characters did not match, please try again
+    thanks: <b>%name%</b>, thank you for your message.

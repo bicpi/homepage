@@ -137,3 +137,16 @@ contact:
         email: name@example.org
         message: Ihre Nachricht ...
         captcha: Bitte geben Sie die Zeichen vom Bild ein ...
+    validation:
+        name:
+            not_blank: Bitte geben Sie Ihren Namen ein
+            min: Bitte geben Sie mindestens {{ limit }} Zeichen ein
+        email:
+            not_blank: Bitte geben Sie Ihre E-Mail-Adresse ein
+            email: Bitte geben Sie eine gültige E-Mail-Adresse ein
+        message:
+            not_blank: Bitte geben Sie Ihre Nachricht ein
+            min: Bitte geben Sie mindestens {{ limit }} Zeichen ein
+        captcha:
+            invalid: Die Zeichen haben nicht übereingestimmt, bitte versuchen Sie es erneut
+    thanks: <b>%name%</b>, vielen Dank für ihre Nachricht.

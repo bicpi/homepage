@@ -82,50 +82,42 @@ $app['captcha'] = function () {
 
 $homepage = function (Request $request) use ($app) {
     $form = $app['form.factory']->createBuilder('form')
-        ->add(
-            'name',
-            'text',
-            array(
-                'constraints' => array(
-                    new Symfony\Component\Validator\Constraints\NotBlank(array('message' => 'Bitte geben Sie ihren Namen ein')),
+        ->add('name', 'text', array('constraints' => array(
+                    new Symfony\Component\Validator\Constraints\NotBlank(array(
+                        'message' => $app['translator']->trans('contact.validation.name.not_blank')
+                    )),
                     new Symfony\Component\Validator\Constraints\Length(array(
                         'min' => 2,
-                        'minMessage' => 'Bitte geben Sie mindestens {{ limit }} Zeichen ein'
+                        'minMessage' => $app['translator']->trans('contact.validation.name.min')
                     )),
                 )
             )
         )
-        ->add(
-            'email',
-            'email',
-            array(
-                'constraints' => array(
-                    new Symfony\Component\Validator\Constraints\NotBlank(array('message' => 'Bitte geben Sie eine E-Mail-Adresse ein')),
-                    new Symfony\Component\Validator\Constraints\Email(array('message' => 'Bitte geben Sie eine gültige E-Mail-Adresse ein')),
+        ->add('email', 'email', array( 'constraints' => array(
+                    new Symfony\Component\Validator\Constraints\NotBlank(array(
+                        'message' => $app['translator']->trans('contact.validation.email.not_blank')
+                    )),
+                    new Symfony\Component\Validator\Constraints\Email(array(
+                        'message' => $app['translator']->trans('contact.validation.email.email')
+                    )),
                 )
             )
         )
-        ->add(
-            'message',
-            'textarea',
-            array(
-                'constraints' => array(
-                    new Symfony\Component\Validator\Constraints\NotBlank(array('message' => 'Bitte geben Sie eine Nachricht ein')),
+        ->add('message', 'textarea', array('constraints' => array(
+                    new Symfony\Component\Validator\Constraints\NotBlank(array(
+                        'message' => $app['translator']->trans('contact.validation.message.not_blank')
+                    )),
                     new Symfony\Component\Validator\Constraints\Length(array(
                         'min' => 10,
-                        'minMessage' => 'Bitte geben Sie mindestens {{ limit }} Zeichen ein'
+                        'minMessage' => $app['translator']->trans('contact.validation.message.min')
                     ))
                 )
             )
         )
-        ->add(
-            'captcha',
-            'text',
-            array(
-                'constraints' => array(
+        ->add('captcha', 'text', array('constraints' => array(
                     new Symfony\Component\Validator\Constraints\EqualTo(array(
                         'value' => $app['session']->get('captcha', ''),
-                        'message' => 'Die Zeichen haben nicht übereingestimmt, bitte versuchen Sie es erneut'
+                        'message' => $app['translator']->trans('contact.validation.captcha.invalid')
                     )),
                 )
             )
@@ -153,10 +145,9 @@ $homepage = function (Request $request) use ($app) {
 
             $app['session']->getFlashBag()->add(
                 'success',
-                sprintf(
-                    '<b>%s</b>, vielen Dank für ihre Nachricht.',
-                    $app->escape($data['name'])
-                )
+                $app['translator']->trans('contact.thanks', [
+                    '%name%' => $app->escape($data['name'])
+                ])
             );
 
             return $app->redirect('/#');
@@ -180,11 +171,11 @@ $homepage = function (Request $request) use ($app) {
     $app['session']->set('captcha', $captcha->getPhrase());
 
     return $app['twig']->render('home.twig', array(
-            'age' => $birthDate->diff(new DateTime('now'))->y,
-            'skills' => $skills,
-            'form' => $form->createView(),
-            'captcha' => $captcha,
-        ));
+        'age' => $birthDate->diff(new DateTime('now'))->y,
+        'skills' => $skills,
+        'form' => $form->createView(),
+        'captcha' => $captcha,
+    ));
 };
 
 $app->match('/{_locale}', $homepage)
@@ -195,5 +186,11 @@ $app
     ->match('/', $homepage)
     ->bind('home')
     ->method('GET|POST');
+$app
+    ->match('/privacy', function (Request $request) use ($app) {
+        return $app['twig']->render('privacy.twig', []);
+    })
+    ->bind('privacy')
+    ->method('GET');
 
 $app->run();
