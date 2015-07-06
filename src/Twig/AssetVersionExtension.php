@@ -13,9 +13,9 @@ class AssetVersionExtension extends \Twig_Extension
 
     public function getFilters()
     {
-        return array(
-            new \Twig_SimpleFilter('asset_version', array($this, 'getAssetVersion')),
-        );
+        return [
+            new \Twig_SimpleFilter('asset_version', [$this, 'getAssetVersion']),
+        ];
     }
 
     public function getAssetVersion($filename)

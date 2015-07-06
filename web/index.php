@@ -2,27 +2,12 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Michelf\MarkdownExtra;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Yaml\Yaml;
 use Gregwar\Captcha\CaptchaBuilder;
 use App\Twig\AssetVersionExtension;
 use App\Twig\MarkdownExtension;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
-
-function shuffle_assoc(&$array) {
-    $keys = array_keys($array);
-
-    shuffle($keys);
-
-    foreach($keys as $key) {
-        $new[$key] = $array[$key];
-    }
-
-    $array = $new;
-
-    return true;
-}
 
 $app = new Silex\Application();
 $app['parameters'] = Yaml::parse(
@@ -34,39 +19,33 @@ if ($app['debug']) {
     error_reporting(-1);
 }
 
-$app->register(
-    new Silex\Provider\TwigServiceProvider(),
-    array(
-        'twig.path' => dirname(__DIR__) . '/src/Resources/views',
-        'twig.form.templates' => array('form_div_layout.html.twig', 'form_layout.twig')
-    )
-);
+$app->register(new Silex\Provider\TwigServiceProvider(), [
+    'twig.path' => dirname(__DIR__) . '/src/Resources/views',
+    'twig.form.templates' => ['form_div_layout.html.twig', 'form_layout.twig']
+]);
 $app['twig'] = $app->extend("twig", function (\Twig_Environment $twig, Silex\Application $app) {
     $twig->addExtension(new AssetVersionExtension(dirname(__DIR__) . '/src'));
     $twig->addExtension(new MarkdownExtension(new \Parsedown()));
 
     return $twig;
 });
-$app->register(new Silex\Provider\SwiftmailerServiceProvider(), array(
-    'swiftmailer.options' => array(
+$app->register(new Silex\Provider\SwiftmailerServiceProvider(), [
+    'swiftmailer.options' => [
         'host' => $app['parameters']['mailer_host'],
         'port' => $app['parameters']['mailer_port'],
         'username' => $app['parameters']['mailer_username'],
         'password' => $app['parameters']['mailer_password'],
         'encryption' => $app['parameters']['mailer_encryption'],
         'auth_mode' => $app['parameters']['mailer_auth_mode'],
-    )
-));
+    ]
+]);
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\ValidatorServiceProvider());
-$app->register(
-    new Silex\Provider\TranslationServiceProvider(),
-    array(
-        'locale' => 'en',
-        'locale_fallbacks' => array('en'),
-    )
-);
+$app->register(new Silex\Provider\TranslationServiceProvider(), [
+    'locale' => 'en',
+    'locale_fallbacks' => ['en'],
+]);
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
 
@@ -82,45 +61,45 @@ $app['captcha'] = function () {
 
 $homepage = function (Request $request) use ($app) {
     $form = $app['form.factory']->createBuilder('form')
-        ->add('name', 'text', array('constraints' => array(
-                    new Symfony\Component\Validator\Constraints\NotBlank(array(
+        ->add('name', 'text', ['constraints' => [
+                    new Symfony\Component\Validator\Constraints\NotBlank([
                         'message' => $app['translator']->trans('contact.validation.name.not_blank')
-                    )),
-                    new Symfony\Component\Validator\Constraints\Length(array(
+                    ]),
+                    new Symfony\Component\Validator\Constraints\Length([
                         'min' => 2,
                         'minMessage' => $app['translator']->trans('contact.validation.name.min')
-                    )),
-                )
-            )
+                    ]),
+                ]
+            ]
         )
-        ->add('email', 'email', array( 'constraints' => array(
-                    new Symfony\Component\Validator\Constraints\NotBlank(array(
+        ->add('email', 'email', ['constraints' => [
+                    new Symfony\Component\Validator\Constraints\NotBlank([
                         'message' => $app['translator']->trans('contact.validation.email.not_blank')
-                    )),
-                    new Symfony\Component\Validator\Constraints\Email(array(
+                    ]),
+                    new Symfony\Component\Validator\Constraints\Email([
                         'message' => $app['translator']->trans('contact.validation.email.email')
-                    )),
-                )
-            )
+                    ]),
+                ]
+            ]
         )
-        ->add('message', 'textarea', array('constraints' => array(
-                    new Symfony\Component\Validator\Constraints\NotBlank(array(
+        ->add('message', 'textarea', ['constraints' => [
+                    new Symfony\Component\Validator\Constraints\NotBlank([
                         'message' => $app['translator']->trans('contact.validation.message.not_blank')
-                    )),
-                    new Symfony\Component\Validator\Constraints\Length(array(
+                    ]),
+                    new Symfony\Component\Validator\Constraints\Length([
                         'min' => 10,
                         'minMessage' => $app['translator']->trans('contact.validation.message.min')
-                    ))
-                )
-            )
+                    ]),
+                ]
+            ]
         )
-        ->add('captcha', 'text', array('constraints' => array(
-                    new Symfony\Component\Validator\Constraints\EqualTo(array(
+        ->add('captcha', 'text', ['constraints' => [
+                    new Symfony\Component\Validator\Constraints\EqualTo([
                         'value' => $app['session']->get('captcha', ''),
                         'message' => $app['translator']->trans('contact.validation.captcha.invalid')
-                    )),
-                )
-            )
+                    ]),
+                ]
+            ]
         )
         ->getForm();
 
@@ -130,7 +109,7 @@ $homepage = function (Request $request) use ($app) {
             $data = $form->getData();
 
             $message = \Swift_Message::newInstance('Nachricht von der Homepage')
-                ->setFrom(array('hello@philipp-rieber.net' => 'philipp-rieber.net'))
+                ->setFrom(['hello@philipp-rieber.net' => 'philipp-rieber.net'])
                 ->setTo('hello@philipp-rieber.net')
                 ->setReplyTo($data['email'])
                 ->setBody(
@@ -157,7 +136,7 @@ $homepage = function (Request $request) use ($app) {
     $skillsRaw = Yaml::parse(
         file_get_contents(dirname(__DIR__).'/src/Resources/config/skills.yml')
     );
-    $skills = array();
+    $skills = [];
     foreach ($skillsRaw as $weight => $skillGroup) {
         foreach ($skillGroup as $skill) {
             $skills[$skill] = $weight;
@@ -166,16 +145,16 @@ $homepage = function (Request $request) use ($app) {
 
     shuffle_assoc($skills);
 
-    $birthDate = new \DateTime('1979-02-06');
+    $birthDate = new \DateTimeImmutable('1979-02-06');
     $captcha = $app['captcha']->build();
     $app['session']->set('captcha', $captcha->getPhrase());
 
-    return $app['twig']->render('home.twig', array(
-        'age' => $birthDate->diff(new DateTime('now'))->y,
+    return $app['twig']->render('home.twig', [
+        'age' => $birthDate->diff(new DateTimeImmutable('now'))->y,
         'skills' => $skills,
         'form' => $form->createView(),
         'captcha' => $captcha,
-    ));
+    ]);
 };
 
 $app->match('/{_locale}', $homepage)
@@ -194,3 +173,18 @@ $app
     ->method('GET');
 
 $app->run();
+
+
+function shuffle_assoc(&$array) {
+    $keys = array_keys($array);
+
+    shuffle($keys);
+
+    foreach($keys as $key) {
+        $new[$key] = $array[$key];
+    }
+
+    $array = $new;
+
+    return true;
+}

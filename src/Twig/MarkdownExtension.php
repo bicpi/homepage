@@ -2,8 +2,6 @@
 
 namespace App\Twig;
 
-use Michelf\MarkdownExtra;
-
 class MarkdownExtension extends \Twig_Extension
 {
     private $parsedown;
@@ -15,10 +13,10 @@ class MarkdownExtension extends \Twig_Extension
 
     public function getFilters()
     {
-        return array(
-            new \Twig_SimpleFilter('markdown', array($this, 'parse')),
-            new \Twig_SimpleFilter('markdown_line', array($this, 'parseLine')),
-        );
+        return [
+            new \Twig_SimpleFilter('markdown', [$this, 'parse']),
+            new \Twig_SimpleFilter('markdown_line', [$this, 'parseLine']),
+        ];
     }
 
     public function parse($content)
