@@ -14,4 +14,4 @@
       shell: /usr/local/bin/gulp chdir={{ project_root }}
     - name: Copy parameters.yml file
       sudo: false
-      template: src=parameters.tpl dest={{project_root}}/src/App/Resources/config/parameters.yml mode=644
+      template: src=parameters.tpl dest={{project_root}}/src/Resources/config/parameters.yml mode=644
