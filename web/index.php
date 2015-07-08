@@ -19,13 +19,17 @@ if ($app['debug']) {
     error_reporting(-1);
 }
 
+$app['parsedown'] = $app->share(function () {
+    return new \Parsedown();
+});
+
 $app->register(new Silex\Provider\TwigServiceProvider(), [
     'twig.path' => dirname(__DIR__) . '/src/Resources/views',
     'twig.form.templates' => ['form_div_layout.html.twig', 'form_layout.twig']
 ]);
 $app['twig'] = $app->extend("twig", function (\Twig_Environment $twig, Silex\Application $app) {
     $twig->addExtension(new AssetVersionExtension(dirname(__DIR__) . '/src'));
-    $twig->addExtension(new MarkdownExtension(new \Parsedown()));
+    $twig->addExtension(new MarkdownExtension($app['parsedown']));
 
     return $twig;
 });
@@ -129,12 +133,16 @@ $app->match('/{_locale}', function (Request $request) use ($app) {
 
             $app['session']->getFlashBag()->add(
                 'success',
-                $app['translator']->trans('contact.thanks', [
-                        '%name%' => $app->escape($data['name'])
-                    ])
+                $app['parsedown']->line($app['translator']->trans('contact.thanks', [
+                    '%name%' => $app->escape($data['name'])
+                ]))
             );
 
-            return $app->redirect($app['url_generator']->generate('home', ['_locale' => 'en']).'#');
+            return $app->redirect(
+                $app['url_generator']->generate('home', [
+                    '_locale' => $request->getLocale()
+                ]) . '#'
+            );
         }
     }
 

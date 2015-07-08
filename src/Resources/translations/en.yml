@@ -153,6 +153,6 @@ contact:
             min: Please enter at least {{ limit }} characters
         captcha:
             invalid: Characters did not match, please try again
-    thanks: <b>%name%</b>, thank you for your message.
+    thanks: "**%name%**, thank you for your message."
 
 gaOptoutMessage: Google Analytics was disabled on this website for the client you are currently using.
