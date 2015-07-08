@@ -151,6 +151,6 @@ contact:
             min: Bitte geben Sie mindestens {{ limit }} Zeichen ein
         captcha:
             invalid: Die Zeichen haben nicht übereingestimmt, bitte versuchen Sie es erneut
-    thanks: "**%name%**, vielen Dank für ihre Nachricht."
+    thanks: "**%name%**, vielen Dank für Ihre Nachricht."
 
 gaOptoutMessage: Google Analytics wurde auf dieser Webseite für den aktuell genutzten Client deaktiviert.
