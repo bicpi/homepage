@@ -10,6 +10,8 @@ nav:
     talks: Vorträge
     contact: Kontakt
     blog: Blog
+    notes: Impressum & Datenschutz
+    back: Zurück
 
 teaser:
     - head: Aktuell.
@@ -150,3 +152,5 @@ contact:
         captcha:
             invalid: Die Zeichen haben nicht übereingestimmt, bitte versuchen Sie es erneut
     thanks: <b>%name%</b>, vielen Dank für ihre Nachricht.
+
+gaOptoutMessage: Google Analytics wurde auf dieser Webseite für den aktuell genutzten Client deaktiviert.

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="{{ path('home', {_locale: app.request.locale}) }}"><i class="icon icon-chevron-left"></i> {{ 'nav.back'|trans }}</a>
+            </div>
+        </div>
+    </div>
+    {% block notes %}{% endblock %}
+</div>
+{% endblock %}

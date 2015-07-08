@@ -9,6 +9,8 @@ nav:
     talks: Talks
     contact: Contact
     blog: Blog
+    notes: Impressum & Privacy
+    back: Back
 
 teaser:
     - head: Update.
@@ -152,3 +154,5 @@ contact:
         captcha:
             invalid: Characters did not match, please try again
     thanks: <b>%name%</b>, thank you for your message.
+
+gaOptoutMessage: Google Analytics was disabled on this website for the client you are currently using.

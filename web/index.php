@@ -48,7 +48,6 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), [
 ]);
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
-
     $translator->addResource('yaml', __DIR__.'/../src/Resources/translations/en.yml', 'en');
     $translator->addResource('yaml', __DIR__.'/../src/Resources/translations/de.yml', 'de');
 
@@ -59,46 +58,52 @@ $app['captcha'] = function () {
     return new CaptchaBuilder();
 };
 
-$homepage = function (Request $request) use ($app) {
+$app
+    ->match('/', function () use ($app) {
+        return $app->redirect($app['url_generator']->generate('home', ['_locale' => 'en']), 301);
+    })
+    ->method('GET');
+
+$app->match('/{_locale}', function (Request $request) use ($app) {
     $form = $app['form.factory']->createBuilder('form')
         ->add('name', 'text', ['constraints' => [
-                    new Symfony\Component\Validator\Constraints\NotBlank([
-                        'message' => $app['translator']->trans('contact.validation.name.not_blank')
-                    ]),
-                    new Symfony\Component\Validator\Constraints\Length([
-                        'min' => 2,
-                        'minMessage' => $app['translator']->trans('contact.validation.name.min')
-                    ]),
-                ]
+                new Symfony\Component\Validator\Constraints\NotBlank([
+                    'message' => $app['translator']->trans('contact.validation.name.not_blank')
+                ]),
+                new Symfony\Component\Validator\Constraints\Length([
+                    'min' => 2,
+                    'minMessage' => $app['translator']->trans('contact.validation.name.min')
+                ]),
+            ]
             ]
         )
         ->add('email', 'email', ['constraints' => [
-                    new Symfony\Component\Validator\Constraints\NotBlank([
-                        'message' => $app['translator']->trans('contact.validation.email.not_blank')
-                    ]),
-                    new Symfony\Component\Validator\Constraints\Email([
-                        'message' => $app['translator']->trans('contact.validation.email.email')
-                    ]),
-                ]
+                new Symfony\Component\Validator\Constraints\NotBlank([
+                    'message' => $app['translator']->trans('contact.validation.email.not_blank')
+                ]),
+                new Symfony\Component\Validator\Constraints\Email([
+                    'message' => $app['translator']->trans('contact.validation.email.email')
+                ]),
+            ]
             ]
         )
         ->add('message', 'textarea', ['constraints' => [
-                    new Symfony\Component\Validator\Constraints\NotBlank([
-                        'message' => $app['translator']->trans('contact.validation.message.not_blank')
-                    ]),
-                    new Symfony\Component\Validator\Constraints\Length([
-                        'min' => 10,
-                        'minMessage' => $app['translator']->trans('contact.validation.message.min')
-                    ]),
-                ]
+                new Symfony\Component\Validator\Constraints\NotBlank([
+                    'message' => $app['translator']->trans('contact.validation.message.not_blank')
+                ]),
+                new Symfony\Component\Validator\Constraints\Length([
+                    'min' => 10,
+                    'minMessage' => $app['translator']->trans('contact.validation.message.min')
+                ]),
+            ]
             ]
         )
         ->add('captcha', 'text', ['constraints' => [
-                    new Symfony\Component\Validator\Constraints\EqualTo([
-                        'value' => $app['session']->get('captcha', ''),
-                        'message' => $app['translator']->trans('contact.validation.captcha.invalid')
-                    ]),
-                ]
+                new Symfony\Component\Validator\Constraints\EqualTo([
+                    'value' => $app['session']->get('captcha', ''),
+                    'message' => $app['translator']->trans('contact.validation.captcha.invalid')
+                ]),
+            ]
             ]
         )
         ->getForm();
@@ -125,11 +130,11 @@ $homepage = function (Request $request) use ($app) {
             $app['session']->getFlashBag()->add(
                 'success',
                 $app['translator']->trans('contact.thanks', [
-                    '%name%' => $app->escape($data['name'])
-                ])
+                        '%name%' => $app->escape($data['name'])
+                    ])
             );
 
-            return $app->redirect('/#');
+            return $app->redirect($app['url_generator']->generate('home', ['_locale' => 'en']).'#');
         }
     }
 
@@ -150,26 +155,22 @@ $homepage = function (Request $request) use ($app) {
     $app['session']->set('captcha', $captcha->getPhrase());
 
     return $app['twig']->render('home.twig', [
-        'age' => $birthDate->diff(new DateTimeImmutable('now'))->y,
-        'skills' => $skills,
-        'form' => $form->createView(),
-        'captcha' => $captcha,
-    ]);
-};
-
-$app->match('/{_locale}', $homepage)
-    ->bind('home_locale')
-    ->assert('_locale', 'de')
-    ->method('GET|POST');
-$app
-    ->match('/', $homepage)
-    ->bind('home')
-    ->method('GET|POST');
-$app
-    ->match('/privacy', function (Request $request) use ($app) {
-        return $app['twig']->render('privacy.twig', []);
+            'age' => $birthDate->diff(new DateTimeImmutable('now'))->y,
+            'skills' => $skills,
+            'form' => $form->createView(),
+            'captcha' => $captcha,
+        ]);
     })
-    ->bind('privacy')
+    ->bind('home')
+    ->assert('_locale', 'en|de')
+    ->method('GET|POST');
+
+$app
+    ->match('/{_locale}/imprint-and-privacy', function (Request $request) use ($app) {
+        return $app['twig']->render(sprintf('notes.%s.html.twig', $request->getLocale()), []);
+    })
+    ->bind('notes')
+    ->assert('_locale', 'en|de')
     ->method('GET');
 
 $app->run();
