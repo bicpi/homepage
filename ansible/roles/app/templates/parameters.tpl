@@ -1,6 +1,8 @@
 ---
 debug: true
 
+recaptcha_secret: {{recaptcha_secret|default('~')}}
+
 mailer_host: {{mailer_host|default('locahost')}}
 mailer_port: {{mailer_port|default(25)}}
 mailer_username: {{mailer_username|default('')}}

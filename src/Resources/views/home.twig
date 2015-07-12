@@ -191,8 +191,8 @@
             <div class="row-fluid">
                 <div class="span6">
                     <form action="{{ path('home', {_locale: app.request.locale}) }}#contact" method="post" class="form" novalidate="novalidate">
-                        <p>{{ 'contact.intro'|trans }}</p>
                         {{ form_errors(form) }}
+                        <p>{{ 'contact.intro'|trans }}</p>
                         <div class="control-group">
                             {{ form_errors(form.name) }}
                             {{ form_widget(form.name, { attr: { class: 'input-block-level', placeholder: 'contact.placeholder.name'|trans } }) }}
@@ -206,9 +206,10 @@
                             {{ form_widget(form.message, { attr: { class: 'input-block-level', placeholder: 'contact.placeholder.message'|trans, cols: '76', rows: '8' } }) }}
                         </div>
                         <div class="control-group">
-                            <p><img src="{{ captcha.inline }}" /></p>
-                            {{ form_errors(form.captcha) }}
-                            {{ form_widget(form.captcha, { value: '', attr: { class: 'input-block-level', placeholder: 'contact.placeholder.captcha'|trans } }) }}
+                            {% if recaptchaErrors|length %}
+                                <p class="label label-important">{{ 'error.recaptcha'|trans }}</p>
+                            {% endif %}
+                            <div class="g-recaptcha" data-sitekey="6LcDMfsSAAAAAKnLsQldMXA6Ajx0RZpzY3bnRmr-"></div>
                         </div>
                         <div class="control-group">
                             {{ form_rest(form) }}

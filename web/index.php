@@ -4,7 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Yaml\Yaml;
-use Gregwar\Captcha\CaptchaBuilder;
+use ReCaptcha\ReCaptcha;
 use App\Twig\AssetVersionExtension;
 use App\Twig\MarkdownExtension;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
@@ -58,9 +58,6 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
     return $translator;
 }));
 $app->register(new Silex\Provider\FormServiceProvider());
-$app['captcha'] = function () {
-    return new CaptchaBuilder();
-};
 
 $app
     ->match('/', function () use ($app) {
@@ -78,8 +75,7 @@ $app->match('/{_locale}', function (Request $request) use ($app) {
                     'min' => 2,
                     'minMessage' => $app['translator']->trans('contact.validation.name.min')
                 ]),
-            ]
-            ]
+            ]]
         )
         ->add('email', 'email', ['constraints' => [
                 new Symfony\Component\Validator\Constraints\NotBlank([
@@ -88,8 +84,7 @@ $app->match('/{_locale}', function (Request $request) use ($app) {
                 new Symfony\Component\Validator\Constraints\Email([
                     'message' => $app['translator']->trans('contact.validation.email.email')
                 ]),
-            ]
-            ]
+            ]]
         )
         ->add('message', 'textarea', ['constraints' => [
                 new Symfony\Component\Validator\Constraints\NotBlank([
@@ -98,23 +93,18 @@ $app->match('/{_locale}', function (Request $request) use ($app) {
                 new Symfony\Component\Validator\Constraints\Length([
                     'min' => 10,
                     'minMessage' => $app['translator']->trans('contact.validation.message.min')
-                ]),
-            ]
-            ]
-        )
-        ->add('captcha', 'text', ['constraints' => [
-                new Symfony\Component\Validator\Constraints\EqualTo([
-                    'value' => $app['session']->get('captcha', ''),
-                    'message' => $app['translator']->trans('contact.validation.captcha.invalid')
-                ]),
-            ]
-            ]
+                ])
+            ]]
         )
         ->getForm();
 
+    $recaptchaErrors = [];
     if ('POST' == $request->getMethod()) {
         $form->bind($request);
-        if ($form->isValid()) {
+
+        $recaptcha = new ReCaptcha($app['parameters']['recaptcha_secret']);
+        $recaptchaResponse = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
+        if ($form->isValid() && $recaptchaResponse->isSuccess()) {
             $data = $form->getData();
 
             $message = \Swift_Message::newInstance('Nachricht von der Homepage')
@@ -144,6 +134,7 @@ $app->match('/{_locale}', function (Request $request) use ($app) {
                 ]) . '#'
             );
         }
+        $recaptchaErrors = $recaptchaResponse->getErrorCodes();
     }
 
     $skillsRaw = Yaml::parse(
@@ -159,14 +150,12 @@ $app->match('/{_locale}', function (Request $request) use ($app) {
     shuffle_assoc($skills);
 
     $birthDate = new \DateTimeImmutable('1979-02-06');
-    $captcha = $app['captcha']->build();
-    $app['session']->set('captcha', $captcha->getPhrase());
 
     return $app['twig']->render('home.twig', [
             'age' => $birthDate->diff(new DateTimeImmutable('now'))->y,
             'skills' => $skills,
             'form' => $form->createView(),
-            'captcha' => $captcha,
+            'recaptchaErrors' => $recaptchaErrors,
         ]);
     })
     ->bind('home')

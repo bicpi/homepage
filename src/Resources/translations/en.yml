@@ -156,3 +156,6 @@ contact:
     thanks: "**%name%**, thank you for your message."
 
 gaOptoutMessage: Google Analytics was disabled on this website for the client you are currently using.
+
+error:
+    recaptcha: Please confirm that you are not a robot.

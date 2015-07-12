@@ -154,3 +154,6 @@ contact:
     thanks: "**%name%**, vielen Dank für Ihre Nachricht."
 
 gaOptoutMessage: Google Analytics wurde auf dieser Webseite für den aktuell genutzten Client deaktiviert.
+
+error:
+    recaptcha: Bitte bestätigen Sie, dass Sie kein Roboter sind.
