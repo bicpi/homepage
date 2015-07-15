@@ -10,10 +10,11 @@ use App\Twig\MarkdownExtension;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 
 $app = new Silex\Application();
-$app['parameters'] = Yaml::parse(
-    file_get_contents(__DIR__.'/../src/Resources/config/parameters.yml')
-);
-$app['debug'] = $app['parameters']['debug'];
+
+$dotenv = new Dotenv\Dotenv(__DIR__.'/..');
+$dotenv->load();
+
+$app['debug'] = getenv('debug');
 if ($app['debug']) {
     ini_set('display_errors', true);
     error_reporting(-1);
@@ -35,12 +36,12 @@ $app['twig'] = $app->extend("twig", function (\Twig_Environment $twig, Silex\App
 });
 $app->register(new Silex\Provider\SwiftmailerServiceProvider(), [
     'swiftmailer.options' => [
-        'host' => $app['parameters']['mailer_host'],
-        'port' => $app['parameters']['mailer_port'],
-        'username' => $app['parameters']['mailer_username'],
-        'password' => $app['parameters']['mailer_password'],
-        'encryption' => $app['parameters']['mailer_encryption'],
-        'auth_mode' => $app['parameters']['mailer_auth_mode'],
+        'host' => getenv('mailer_host'),
+        'port' => getenv('mailer_port'),
+        'username' => getenv('mailer_username'),
+        'password' => getenv('mailer_password'),
+        'encryption' => getenv('mailer_encryption'),
+        'auth_mode' => getenv('mailer_auth_mode'),
     ]
 ]);
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
@@ -102,7 +103,7 @@ $app->match('/{_locale}', function (Request $request) use ($app) {
     if ('POST' == $request->getMethod()) {
         $form->bind($request);
 
-        $recaptcha = new ReCaptcha($app['parameters']['recaptcha_secret']);
+        $recaptcha = new ReCaptcha(getenv('recaptcha_secret'));
         $recaptchaResponse = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
         if ($form->isValid() && $recaptchaResponse->isSuccess()) {
             $data = $form->getData();

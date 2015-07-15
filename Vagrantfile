@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.provider :virtualbox do |v|
         v.name = "bicpi-homepage"
-        v.customize ["modifyvm", :id, "--memory", 512]
+        v.customize ["modifyvm", :id, "--memory", 1024]
      end
 
     config.vm.box = "ubuntu/trusty64"

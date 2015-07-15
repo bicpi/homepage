@@ -20,6 +20,7 @@
         "symfony/translation": "^2.7",
         "symfony/twig-bridge": "^2.7",
         "symfony/yaml": "^2.7",
-        "symfony/security": "^2.7"
+        "symfony/security": "^2.7",
+        "vlucas/phpdotenv": "^2.0"
     }
 }

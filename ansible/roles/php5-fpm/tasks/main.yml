@@ -17,3 +17,11 @@
   lineinfile: dest=/etc/php5/fpm/php.ini
               regexp='date.timezone ='
               line='date.timezone = {{ timezone }}'
+
+- name: ensure xdebug config remote_enable
+  lineinfile: dest=/etc/php5/mods-available/xdebug.ini
+              line='xdebug.remote_enable=On'
+
+- name: ensure xdebug config remote_connect_back
+  lineinfile: dest=/etc/php5/mods-available/xdebug.ini
+              line='xdebug.remote_connect_back=On'
