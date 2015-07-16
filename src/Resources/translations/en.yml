@@ -16,7 +16,7 @@ teaser:
     - head: Update.
       body: Translation: [Docker Entdecken](https://discoveringdocker.com/de/) – first German-language book about [Docker](https://www.docker.com/)
     - head: Update.
-      body: Article about *Ionic Framework* in [German PHPmagazin 5.15](https://entwickler.de/php-magazin)
+      body: Article about *Ionic Framework* in [German PHPmagazin 5.15](https://entwickler.de/php-magazin/php-magazin-5-15-135510.html)
 
 intro:
     h1: Hi. <span class="muted">My name is</span> Philipp Rieber.
