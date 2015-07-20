@@ -23,7 +23,7 @@ intro:
     h2: I'm a passionate web developer.
     h3: |
         My tools are PHP, Symfony, Doctrine, HTML5, JavaScript, CSS3, jQuery, Twig,
-        Git, Ubuntu, Amazon Web Services, Datenbanken and many more.
+        Git, Ubuntu, Amazon Web Services, databases and many more.
     h4: I'm %age% years old and I live in Munich, Germany.
 
 opening:
