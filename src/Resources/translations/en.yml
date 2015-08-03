@@ -133,6 +133,7 @@ talks:
         - "**Symfony's OptionsResolver component**, Symfony User Group Munich, *September 26, 2012*"
         - "**[Customized Fixtures with Faker & Alice](talks/2015-05-11-sfugmunich-Faker-and-Alice.pdf)**, Symfony User Group Munich, *May 11, 2015*"
         - "**[Customized Fixtures with Faker & Alice](talks/2015-05-27-phpugmunich-Faker-and-Alice.pdf)**, PHP User Group Munich, *May 27, 2015*"
+        - "**[Connecting Xdebug to PhpStorm](talks/2015-07-31-Connecting-Xdebug-to-PhpStorm.pdf)**, Session Digital GmbH, *July 31, 2015*"
 
 contact:
     intro: Send me a message or a tweet.
