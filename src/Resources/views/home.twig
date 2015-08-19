@@ -177,12 +177,9 @@
         <section>
             <h2>{{ 'nav.talks'|trans }}</h2>
             <ul>
-                <li>{{ 'talks.items.5'|trans|markdown_line|raw }}</li></li>
-                <li>{{ 'talks.items.4'|trans|markdown_line|raw }}</li></li>
-                <li>{{ 'talks.items.3'|trans|markdown_line|raw }}</li></li>
-                <li>{{ 'talks.items.2'|trans|markdown_line|raw }}</li></li>
-                <li>{{ 'talks.items.1'|trans|markdown_line|raw }}</li></li>
-                <li>{{ 'talks.items.0'|trans|markdown_line|raw }}</li></li>
+                {% for i in 0..5 %}
+                    <li>{{ "talks.items.#{i}"|trans|markdown_line|raw }}</li></li>
+                {% endfor %}
             </ul>
         </section>
 
