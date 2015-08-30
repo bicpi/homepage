@@ -14,9 +14,9 @@ nav:
 
 teaser:
     - head: Update.
-      body: Translation: [Docker Entdecken](https://discoveringdocker.com/de/) – first German-language book about [Docker](https://www.docker.com/)
-    - head: Update.
       body: Article about *Ionic Framework* in [German PHPmagazin 5.15](https://entwickler.de/php-magazin/php-magazin-5-15-135510.html)
+    - head: Update.
+      body: Article *[Connecting Xdebug to PhpStorm](http://www.sessiondigital.de/blog/connecting-xdebug-to-phpstorm/)* on [Session Digital](http://www.sessiondigital.de/)'s company blog
 
 intro:
     h1: Hi. <span class="muted">My name is</span> Philipp Rieber.
@@ -125,6 +125,10 @@ publications:
             title: Ionic – Hybrid-Apps mit dem JavaScript-Framework
             alt: "Cover PHPmagazin 5.15: PouchDB!, March 2015"
             subtitle: July 2015, German PHPmagazin 5.15<br>7 pages
+        xdebug:
+            title: Connecting Xdebug to PhpStorm
+            alt: "Connecting Xdebug to PhpStorm"
+            subtitle: August 2015, Session Digital GmbH Blog
 
 talks:
     items:
