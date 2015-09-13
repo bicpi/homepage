@@ -114,7 +114,7 @@ publications:
         aliceFaker:
             title: Alice und Faker
             alt: "Cover PHPmagazin 3.15: Alice und Faker, März 2015"
-            subtitle: März 2015, PHPmagazin 3.15<br>Titelartikel, 8 Seiten
+            subtitle: März 2015, PHPmagazin 3.15<br>Titelartikel, 8 Seiten, [Teaser](https://entwickler.de/online/datenbanken/alice-im-fakerland-150178.html)
         docker:
             title: Docker Entdecken
             alt: "Buchcover: Docker Entdecken"
@@ -122,7 +122,7 @@ publications:
         ionic:
             title: Ionic – Hybrid-Apps mit dem JavaScript-Framework
             alt: "Buchcover PHPmagazin 5.15: PouchDB!, March 2015"
-            subtitle: Juli 2015, PHPmagazin 5.15<br>7 Seiten
+            subtitle: Juli 2015, PHPmagazin 5.15<br>7 Seiten, [Online lesen](https://entwickler.de/online/ionic-einfuehrung-erstellen-hybrid-apps-167988.html)
         xdebug:
             title: Connecting Xdebug to PhpStorm
             alt: "Connecting Xdebug to PhpStorm"
