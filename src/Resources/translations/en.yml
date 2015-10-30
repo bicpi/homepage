@@ -51,7 +51,7 @@ opening:
         body: |
             I'm working as a Senior Software Engineer at
             [Session Digital GmbH](http://www.sessiondigital.de/)/[Inviqa](http://inviqa.com/).
-            Before, I evaluated a FinTech startup idea at [WERK1](http://www.werk1muenchen.de/)
+            Before, I evaluated a InsurTech startup idea at [WERK1](http://www.werk1muenchen.de/)
             and worked for seven years as a web developer, team lead and deputy
             managing director of an internet agency (Onemedia GmbH). Besides, I advise
             and support some other projects.
@@ -138,6 +138,8 @@ talks:
         - "**[Customized Fixtures with Faker & Alice](talks/2015-05-11-sfugmunich-Faker-and-Alice.pdf)**, Symfony User Group Munich, *May 11, 2015*"
         - "**[Customized Fixtures with Faker & Alice](talks/2015-05-27-phpugmunich-Faker-and-Alice.pdf)**, PHP User Group Munich, *May 27, 2015*"
         - "**[Connecting Xdebug to PhpStorm](talks/2015-07-31-Connecting-Xdebug-to-PhpStorm.pdf)**, Session Digital GmbH, *July 31, 2015*"
+        - "**[Connecting Xdebug to PhpStorm](http://www.sessiondigital.de/blog/connecting-xdebug-to-phpstorm/)**, Symfony User Group München, *29.09.2015*"
+        - "**[How I use PhpStorm](talks/2015-10-23-How-Philipp-uses-PHPStorm.pdf)**, Session Digital GmbH, *23.10.2015*"
 
 contact:
     intro: Send me a message or a tweet.

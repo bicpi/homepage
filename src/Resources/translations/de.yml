@@ -50,7 +50,7 @@ opening:
         body: |
             Ich arbeite als Senior Software Engineer bei der
             [Session Digital GmbH](http://www.sessiondigital.de/)/[Inviqa](http://inviqa.com/).
-            Zuvor war ich bei der Evaluierung eines FinTech-StartUps im
+            Zuvor war ich bei der Evaluierung eines InsurTech-StartUps im
             [WERK1](http://www.werk1muenchen.de/) dabei und arbeitete sieben Jahre
             als Webentwickler, Teamleiter und stellvertretender Geschäftsführer
             bei der Onemedia GmbH. Gelegentlich berate und unterstütze ich nebenbei
@@ -136,6 +136,12 @@ talks:
         - "**[Customized Fixtures with Faker & Alice](talks/2015-05-11-sfugmunich-Faker-and-Alice.pdf)**, Symfony User Group München, *11.05.2015*"
         - "**[Customized Fixtures with Faker & Alice](talks/2015-05-27-phpugmunich-Faker-and-Alice.pdf)**, PHP User Group München, *27.05.2015*"
         - "**[Connecting Xdebug to PhpStorm](talks/2015-07-31-Connecting-Xdebug-to-PhpStorm.pdf)**, Session Digital GmbH, *31.07.2015*"
+        - "**[Connecting Xdebug to PhpStorm](http://www.sessiondigital.de/blog/connecting-xdebug-to-phpstorm/)**, Symfony User Group München, *29.09.2015*"
+        - "**[How I use PhpStorm](talks/2015-10-23-How-Philipp-uses-PHPStorm.pdf)**, Session Digital GmbH, *23.10.2015*"
+
+
+sfugmuc Talk about xdebug;
+PhpStorm Brown Bag (http://youtu.be/R70h8JqFenI)
 
 contact:
     intro: Senden Sie mir eine Nachricht oder einen Tweet.
