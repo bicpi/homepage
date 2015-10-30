@@ -139,10 +139,6 @@ talks:
         - "**[Connecting Xdebug to PhpStorm](http://www.sessiondigital.de/blog/connecting-xdebug-to-phpstorm/)**, Symfony User Group München, *29.09.2015*"
         - "**[How I use PhpStorm](talks/2015-10-23-How-Philipp-uses-PHPStorm.pdf)**, Session Digital GmbH, *23.10.2015*"
 
-
-sfugmuc Talk about xdebug;
-PhpStorm Brown Bag (http://youtu.be/R70h8JqFenI)
-
 contact:
     intro: Senden Sie mir eine Nachricht oder einen Tweet.
     placeholder:
