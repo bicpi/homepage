@@ -142,6 +142,7 @@ talks:
         - "**[Connecting Xdebug to PhpStorm](http://www.sessiondigital.de/blog/connecting-xdebug-to-phpstorm/)**, Symfony User Group München, *29.09.2015*"
         - "**[How I use PhpStorm](talks/2015-10-23-How-Philipp-uses-PHPStorm.pdf)**, Session Digital GmbH, *23.10.2015*"
         - "**[Symfony from a bird's eye view](talks/2016-02-17-sfugmuc-Symfony-from-a-birds-eye-view.pdf)**, Drupal/Symfony User Group München, *17.02.2016*"
+        - "**[Prophecy](talks/2016-03-11-Prophecy.pdf)**, Paymill GmbH, *11.03.2016*"
 
 contact:
     intro: Send me a message or a tweet.
