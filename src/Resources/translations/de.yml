@@ -15,9 +15,7 @@ nav:
 
 teaser:
     - head: Aktuell.
-      body: Artikel zum *Ionic Framework* im [PHPmagazin 5.15](https://entwickler.de/php-magazin/php-magazin-5-15-135510.html)
-    - head: Aktuell.
-      body: Artikel *[Connecting Xdebug to PhpStorm](http://www.sessiondigital.de/blog/connecting-xdebug-to-phpstorm/)* im Firmen-Blog von [Session Digital](http://www.sessiondigital.de/)
+      body: Vortrag "Maßgeschneiderte Testdaten" am 29.04.2016, 10 Uhr auf der [SymfonyLive 2016](http://cologne2016.live.symfony.com/program)
 
 intro:
     h1: Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.

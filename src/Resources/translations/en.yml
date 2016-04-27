@@ -14,9 +14,7 @@ nav:
 
 teaser:
     - head: Update.
-      body: Article about *Ionic Framework* in [German PHPmagazin 5.15](https://entwickler.de/php-magazin/php-magazin-5-15-135510.html)
-    - head: Update.
-      body: Article *[Connecting Xdebug to PhpStorm](http://www.sessiondigital.de/blog/connecting-xdebug-to-phpstorm/)* on [Session Digital](http://www.sessiondigital.de/)'s company blog
+      body: Talking about "Fixtures" on April 29th 2016, 10am at [SymfonyLive](http://cologne2016.live.symfony.com/program)
 
 intro:
     h1: Hi. <span class="muted">My name is</span> Philipp Rieber.

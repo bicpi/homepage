@@ -60,6 +60,7 @@
   - Webservices
   - Twelve-Factor App
   - Ionic
+  - BDD&Behat
 
 150:
   - Vagrant
@@ -73,6 +74,7 @@
   - prophecy
   - OAuth
   - PHP League
+  - JSON Schema
 
 140:
   - phpunit
@@ -89,7 +91,6 @@
   - Beanstalkd
   - SVG
   - Apple
-  - Behat
   - Mink
   - Guzzle
   - Xdebug
@@ -121,7 +122,6 @@
   - ngCordova
   - Ansible
   - nginx
-  - BDD
   - TDD
   - Cynefin
 
