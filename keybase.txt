@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/bicpi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://philipp-rieber.net
+  * I am bicpi (https://keybase.io/bicpi) on keybase.
+  * I have a public key with fingerprint 6E36 BA6F 91FC 22AD 91D0  69DC 703D 5F24 C9F6 6375
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01015287fc192062bb524c731caac63013a87d5be325f2c13186b1f4693d2809f86a0a",
+            "fingerprint": "6e36ba6f91fc22ad91d069dc703d5f24c9f66375",
+            "host": "keybase.io",
+            "key_id": "703d5f24c9f66375",
+            "kid": "01015287fc192062bb524c731caac63013a87d5be325f2c13186b1f4693d2809f86a0a",
+            "uid": "6721dc37ec0339b6e464fb42097dd319",
+            "username": "bicpi"
+        },
+        "service": {
+            "hostname": "philipp-rieber.net",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1467836560,
+    "expire_in": 157680000,
+    "prev": "87ebc0507422a83c2ebe0d6fa91e6a9b18bb3fb3a31870a173157b2cc41b0516",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.53
+Comment: https://keybase.io/crypto
+
+yMIlAnicrVJtaE5RHH8eL7MtJFnaRjhC8WzOuefec+99vpAkJBZ53Xi659xzt7OX
+57nuvXs8D0bePhCRtCIpRgltU8oM5eVpMkXeWvZFEplGjZWSyblrvvnofDmd///3
++53f/9c/N2F0pDB63Z+WEdnzNPrk/pnGyMammhO7AE3ZWRDfBer48MXrbe4HiTph
+gziACCJNMXSHIVOBRKFUU1SmY8QsixEMEbYM3dYox4rmKAxhZBCKHJWY2FYMaDoG
+saAFYsARyWruuZ5IBlKWcEyoRRwTOUxRLNtENiSmzXSIbamjMtMhBOuaJNak/JAh
+zVHL5+UiJWvykRi29w/8f/bdOCxHdAXZDOucQYxNSrhKVIeqCjR128bIDIE+95JW
+A5doKpgrQFMMyFJaMB6mGo4x0nZrRL1w3TJPcMq98iQPJN31UkGKpeplvyYIXD8e
+8oOsGxJ2cJoYkUpQkbRllJKR5p4vUkkQRxLJAhFqI5XoBiYagTHAM67weEKECE0n
+BpQn/IenpaShc8qgBnVVxm9gpkgr0CaOZSJOLJMig1LsUGzJYHRoIZmcplOFMRVR
+qCECwuG2J1MgrkqbVrWU9EV10goaPQ6aHtyrGhOJFkbyxo4KVyxSWDDp7+LRffmR
+5lxP5RF4rvT9lmuruzoPp391RF88XFhZ4BZVdMb8RS15xx63H3Xa65sLboHyoRmT
+02e7Pi3xqzZ46pyM++3y8Z2lkf1zT05dnJ7+8Wr7Hn5h5oHWotzzL4O1k/Zundb2
+diLMLioL1rYW974bmPIQ1Wbdla/s+LYVs9RDd3r7llxKdM+c/2z30PfKWO53ccWa
+kv55WyofrSf9Pbb3oeHqpqaxr1tuJnrvnZodnbxa/Jj1M3/GwZN0MLL0dBGC/QNl
+c27s7nn3ct3nHtqxIf7UezNh3Pzxebn9Ft157kMLyCzN35pZ1kd+tnVXLIfnB698
+7bx4d8Eac/Oq24W9zcdKuoA39AforDn6
+=DWN5
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bicpi
+
+==================================================================
