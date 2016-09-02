@@ -22,6 +22,7 @@
   - Amazon Web Services
   - SQL
   - "*js"
+  - APIs
 
 190:
   - Assetic
@@ -46,12 +47,15 @@
   - HTTP
 
 170:
+  - Ant
   - Ubuntu
   - Google APIs
   - Bootstrap
   - i18n
   - l10n
   - DevOps
+  - Docker
+  - Microservices
 
 160:
   - Scrum
@@ -87,7 +91,6 @@
   - Responsive
   - Heroku
   - Mac
-  - Docker
   - Beanstalkd
   - SVG
   - Apple
@@ -124,6 +127,7 @@
   - nginx
   - TDD
   - Cynefin
+  - deployer
 
 120:
   - NoSQL

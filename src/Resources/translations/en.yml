@@ -1,6 +1,6 @@
 head:
-    title: Philipp Rieber | Full Stack Web Developer | Munich
-    description: Homepage of Philipp Rieber | Full Stack Web Developer from Munich
+    title: Philipp Rieber | Full Stack Software Engineer | Munich
+    description: Homepage of Philipp Rieber | Full Stack Software Engineer from Munich
 nav:
     home: Home
     skills: Skills
@@ -12,13 +12,11 @@ nav:
     notes: Impressum & Privacy
     back: Back
 
-teaser:
-    - head: Update.
-      body: Talked about "Customized fixtures with Faker and Alice" on April 29th 2016 at [SymfonyLive Cologne](http://cologne2016.live.symfony.com/program)
+teaser: []
 
 intro:
     h1: Hi. <span class="muted">My name is</span> Philipp Rieber.
-    h2: I'm a passionate web developer.
+    h2: I'm a passionate software engineer.
     h3: |
         My tools are PHP, Symfony, Doctrine, HTML5, JavaScript, CSS3, jQuery, Twig,
         Git, Ubuntu, Amazon Web Services, databases and many more.
@@ -36,11 +34,11 @@ opening:
             CMS, OOP, Frameworks, Servers, Git, AWS, Scrum, Cloud Services,
             Mobile and many more.
     col2:
-        head: Web development
+        head: Software development
         body: |
-            I'm a full stack web developer – but not a web designer.
-            I mainly develop completely customised web applications and focus
-            on DevOps tasks. Thus, I'm not limited to a specific area and
+            I'm a full stack Software Engineer.
+            I mainly develop completely customised web applications, APIs
+            and focus on DevOps tasks. Thus, I'm not limited to a specific area and
             feel equally comfortable on the client as on the server side
             – as well as on the console, during software design stage, in a
             Scrum team or when exploring a customer's precise needs.
@@ -62,7 +60,7 @@ skills:
 
 about:
     intro: |
-        Besides web development, I write and talk about it and like to support
+        Besides software development, I write and talk about it and like to support
         other developers. Every free minute I try new tools and libraries, read
         documentation, do tutorials, check IT news or watch video trainings.
         I love to constantly learn new things and to improve my skills.
@@ -70,7 +68,7 @@ about:
     col1:
         head: Conferences
         body: |
-            I love to attend web development conferences and workshops. For example,
+            I love to attend software development conferences and workshops. For example,
             I attended [Symfony Live](http://live.symfony.com)
             and the [Symfony Day](http://www.symfonyday.com/de) several times,
             as well as some roadshows, presentations or trainings from Adobe, Amazon and
@@ -95,7 +93,7 @@ about:
 
 publications:
     intro: |
-        Every now and then I write articles and books about web development or translate from
+        Every now and then I write articles and books about software development or translate from
         English. In everyday work I'm also texting a lot for case studies, references or
         documentation. Occasionally I blog at
         [blog.philipp-rieber.net](http://blog.philipp-rieber.net).
@@ -142,7 +140,7 @@ talks:
         - "**[Symfony from a bird's eye view](talks/2016-02-17-sfugmuc-Symfony-from-a-birds-eye-view.pdf)**, Drupal/Symfony User Group München, *17.02.2016*"
         - "**[Prophecy](talks/2016-03-11-Prophecy.pdf)**, Paymill GmbH, *11.03.2016*"
         - "**[Customized Fixtures with Faker & Alice](https://speakerdeck.com/bicpi/massgeschneiderte-testdaten-mit-faker-und-alice)**, Paymill GmbH, *22.04.2016*"
-        - "**[Customized Fixtures with Faker & Alice](https://speakerdeck.com/bicpi/massgeschneiderte-testdaten-mit-faker-und-alice)**, [SymfonyLive Cologne 2016](http://cologne2016.live.symfony.com/), *28.04.2016*"
+        - "**[Customized Fixtures with Faker & Alice](https://speakerdeck.com/bicpi/massgeschneiderte-testdaten-mit-faker-und-alice)**, [SymfonyLive Cologne 2016](http://cologne2016.live.symfony.com/), , [Video recording](https://www.youtube.com/watch?v=TqPYztlkS68), *28.04.2016*"
 
 contact:
     intro: Send me a message or a tweet.

@@ -1,6 +1,6 @@
 head:
-    title: Philipp Rieber | Full Stack Webentwickler | München
-    description: Homepage von Philipp Rieber | Full Stack Webentwickler aus München
+    title: Philipp Rieber | Full Stack Softwareentwickler | München
+    description: Homepage von Philipp Rieber | Full Stack Softwareentwickler aus München
 
 nav:
     home: Home
@@ -13,13 +13,11 @@ nav:
     notes: Impressum & Datenschutz
     back: Zurück
 
-teaser:
-    - head: Aktuell.
-      body: Vortrag "Maßgeschneiderte Testdaten mit Faker und Alice" am 29.04.2016 auf der [SymfonyLive Köln](http://cologne2016.live.symfony.com/program)
+teaser: []
 
 intro:
     h1: Hallo. <span class="muted">Mein Name ist</span> Philipp Rieber.
-    h2: Ich bin leidenschaftlicher Webentwickler.
+    h2: Ich bin leidenschaftlicher Softwareentwickler.
     h3: Meine Werkzeuge sind PHP, Symfony, Doctrine, HTML5, JavaScript, CSS3, jQuery, Twig, Git, Ubuntu, Amazon Web Services, Datenbanken und viele mehr.
     h4: Ich bin %age% Jahre alt und lebe in München.
 
@@ -35,10 +33,10 @@ opening:
             AWS, Scrum, Cloud Services, Mobile u.v.m. habe ich eine Technik
             nach der anderen gelernt.
     col2:
-        head: Webentwicklung
+        head: Softwareentwickler
         body: |
-            Ich bin Full Stack Webentwickler – aber kein Webdesigner.
-            Hauptsächlich entwickle ich komplett individualisierte Web-Applikationen
+            Ich bin Full Stack Softwareentwickler.
+            Hauptsächlich entwickle ich komplett individualisierte Web-Applikationen sowie APIs
             und widme mich DevOps-Aufgaben. Daher bin ich nicht auf ein Gebiet
             festgelegt und fühle mich client- und serverseitig gleichermaßen wohl
             – genau so wie auf der Konsole, in der Konzeption, im Scrum-Team oder
@@ -61,7 +59,7 @@ skills:
         Toolkits und Bibliotheken – manche mehr, manche weniger.
 about:
     intro: |
-        Neben der Webentwicklung schreibe und rede ich auch sehr gerne darüber oder
+        Neben der Softwareentwicklung schreibe und rede ich auch sehr gerne darüber oder
         unterstütze andere. Jede freie Minute probiere ich neue Tools und Bibliotheken
         aus, lese Dokumentationen, Tutorials, IT-Nachrichten oder sehe Video-Trainings.
         Ich möchte ständig neue Dinge lernen und mich verbessern.
@@ -69,7 +67,7 @@ about:
     col1:
         head: Konferenzen
         body: |
-            Sehr gerne besuche ich Konferenzen und Workshops für Webentwickler. So war
+            Sehr gerne besuche ich Konferenzen und Workshops für Softwareentwickler. So war
             ich etwa mehrfach auf der [Symfony Live Konferenz](http://live.symfony.com),
             dem [Symfony Day](http://www.symfonyday.com/de) und diversen Roadshows,
             Präsentation oder Trainings von Adobe, Amazon und Microsoft.
@@ -140,7 +138,7 @@ talks:
         - "**[Symfony from a bird's eye view](talks/2016-02-17-sfugmuc-Symfony-from-a-birds-eye-view.pdf)**, Drupal/Symfony User Group München, *17.02.2016*"
         - "**[Prophecy](talks/2016-03-11-Prophecy.pdf)**, Paymill GmbH, *11.03.2016*"
         - "**[Maßgeschneiderte Testdaten mit Faker & Alice](https://speakerdeck.com/bicpi/massgeschneiderte-testdaten-mit-faker-und-alice)**, Paymill GmbH, *22.04.2016*"
-        - "**[Maßgeschneiderte Testdaten mit Faker & Alice](https://speakerdeck.com/bicpi/massgeschneiderte-testdaten-mit-faker-und-alice)**, [SymfonyLive Köln 2016](http://cologne2016.live.symfony.com/), *28.04.2016*"
+        - "**[Maßgeschneiderte Testdaten mit Faker & Alice](https://speakerdeck.com/bicpi/massgeschneiderte-testdaten-mit-faker-und-alice)**, [SymfonyLive Köln 2016](http://cologne2016.live.symfony.com/), [Video-Aufzeichnung](https://www.youtube.com/watch?v=TqPYztlkS68), *28.04.2016*"
 
 contact:
     intro: Senden Sie mir eine Nachricht oder einen Tweet.
