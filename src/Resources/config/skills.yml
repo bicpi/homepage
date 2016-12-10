@@ -97,6 +97,7 @@
   - Mink
   - Guzzle
   - Xdebug
+  - DDD
 
 130:
   - DigitalOcean
@@ -147,6 +148,8 @@
   - Nagios
   - Putty
   - duplicity
+  - Cloudflare
+  - Mandrill
 
 110:
   - MongoDB
@@ -162,7 +165,6 @@
   - SNS
   - VPN
   - iPhone
-  - DDD
 
 100:
   - Python
